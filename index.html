@@ -31,8 +31,6 @@ color:#222;
 --light:#fff1f4;
 }
 
-/* NAVBAR */
-
 nav{
 position:fixed;
 top:0;
@@ -63,11 +61,6 @@ nav a{
 text-decoration:none;
 font-weight:700;
 color:#444;
-transition:.3s;
-}
-
-nav a:hover{
-color:var(--main);
 }
 
 .cart-btn{
@@ -79,8 +72,6 @@ border-radius:50px;
 font-weight:700;
 cursor:pointer;
 }
-
-/* HERO */
 
 .hero{
 min-height:100vh;
@@ -118,11 +109,6 @@ color:white;
 text-decoration:none;
 border-radius:50px;
 font-weight:700;
-transition:.3s;
-}
-
-.hero-btn:hover{
-background:var(--dark);
 }
 
 .hero-image img{
@@ -131,8 +117,6 @@ max-width:500px;
 border-radius:30px;
 box-shadow:0 20px 60px rgba(0,0,0,.15);
 }
-
-/* SECTION */
 
 .section{
 padding:90px 8%;
@@ -148,12 +132,6 @@ font-size:3rem;
 margin-bottom:10px;
 }
 
-.section-title p{
-color:#666;
-}
-
-/* SEARCH */
-
 .search-box{
 display:flex;
 justify-content:center;
@@ -162,16 +140,12 @@ margin-bottom:40px;
 
 .search-box input{
 width:350px;
-max-width:100%;
 padding:15px 20px;
 border:none;
 border-radius:50px;
-font-size:1rem;
 box-shadow:0 5px 20px rgba(0,0,0,.08);
 outline:none;
 }
-
-/* PRODUCTS */
 
 .products{
 display:grid;
@@ -239,14 +213,7 @@ padding:12px 18px;
 border-radius:50px;
 cursor:pointer;
 font-weight:700;
-transition:.3s;
 }
-
-.buy-btn:hover{
-background:var(--dark);
-}
-
-/* FEATURES */
 
 .features{
 background:var(--light);
@@ -270,8 +237,6 @@ font-size:3rem;
 display:block;
 margin-bottom:15px;
 }
-
-/* CART */
 
 .cart{
 position:fixed;
@@ -330,24 +295,12 @@ cursor:pointer;
 font-size:1rem;
 }
 
-.checkout:hover{
-background:var(--main);
-}
-
-/* FOOTER */
-
 footer{
 background:var(--dark);
 color:white;
 text-align:center;
 padding:50px 20px;
 }
-
-footer h2{
-margin-bottom:10px;
-}
-
-/* WHATSAPP */
 
 .whatsapp{
 position:fixed;
@@ -363,11 +316,7 @@ align-items:center;
 border-radius:50%;
 font-size:2rem;
 text-decoration:none;
-box-shadow:0 10px 30px rgba(37,211,102,.4);
-z-index:1000;
 }
-
-/* MOBILE */
 
 @media(max-width:900px){
 
@@ -518,8 +467,6 @@ onkeyup="searchProducts()">
 
 </section>
 
-<!-- FOOTER -->
-
 <footer>
 
 <h2>Rosavelleee Beauty</h2>
@@ -530,22 +477,18 @@ onkeyup="searchProducts()">
 
 </footer>
 
-<!-- WHATSAPP -->
-
 <a class="whatsapp"
-href="https://wa.me/201000000000">
+href="https://wa.me/2001044829997">
 💬
 </a>
 
 <script>
 
-/* PRODUCTS */
-
 const products = [
 
 {
 id:1,
-name:"Rosavelleee Sunscreen Gel",
+name:"Rosavelleee Bobana Sunscreen Gel",
 price:350,
 category:"العناية بالبشرة",
 image:"https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200&auto=format&fit=crop",
@@ -557,7 +500,7 @@ id:2,
 name:"Rosavelleee Vitamin C Face Wash",
 price:85,
 category:"غسول",
-image:"https://m.media-amazon.com/images/I/51M2WTb97fL._AC_SL1080_.jpg",
+image:"https://images.unsplash.com/photo-1556228578-dd6c79deb0b6?q=80&w=1200&auto=format&fit=crop",
 description:"غسول فيتامين C لتنظيف وإشراق البشرة."
 },
 
@@ -598,8 +541,6 @@ description:"مرطب شفاه طبيعي يدوم طويلاً."
 }
 
 ];
-
-/* RENDER PRODUCTS */
 
 function renderProducts(items = products){
 
@@ -648,8 +589,6 @@ onclick="addToCart(${product.id})">
 
 }
 
-/* SEARCH */
-
 function searchProducts(){
 
 const value =
@@ -667,8 +606,6 @@ product.name.toLowerCase().includes(value)
 renderProducts(filtered);
 
 }
-
-/* CART */
 
 let cart =
 JSON.parse(localStorage.getItem('cart'))
@@ -775,8 +712,6 @@ count.innerHTML = cart.length;
 
 }
 
-/* CHECKOUT */
-
 function checkout(){
 
 if(cart.length === 0){
@@ -788,30 +723,37 @@ return;
 }
 
 let message =
-'مرحباً، أريد طلب المنتجات التالية:%0A%0A';
+'🌸 طلب جديد من موقع Rosavelleee %0A%0A';
 
 let total = 0;
 
-cart.forEach(item=>{
+cart.forEach((item,index)=>{
 
 message +=
-`• ${item.name} - ${item.price} ج%0A`;
+`🛍 المنتج ${index + 1}:%0A`;
+
+message +=
+`الاسم: ${item.name}%0A`;
+
+message +=
+`السعر: ${item.price} ج%0A%0A`;
 
 total += item.price;
 
 });
 
 message +=
-`%0Aالإجمالي: ${total} ج`;
+`💰 الإجمالي النهائي: ${total} ج%0A%0A`;
+
+message +=
+`📍 برجاء تأكيد الطلب والشحن.`;
 
 window.open(
-`https://wa.me/201000000000?text=${message}`,
+`https://wa.me/2001044829997?text=${message}`,
 '_blank'
 );
 
 }
-
-/* INIT */
 
 renderProducts();
 

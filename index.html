@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rosavelle Beauty</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rosavelle Store</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -15,34 +17,38 @@ box-sizing:border-box;
 
 body{
 font-family:'Cairo',sans-serif;
-background:#fff7f7;
+background:#fff8f8;
 overflow-x:hidden;
+color:#222;
 }
 
 :root{
---pink:#d88b94;
---dark:#2d1f21;
---gold:#c8a46a;
+--main:#d88995;
+--dark:#2c1d20;
+--gold:#c5a46b;
+--light:#fff1f3;
 }
 
+/* NAV */
+
 nav{
+position:fixed;
+top:0;
+left:0;
+right:0;
+background:white;
+padding:18px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 8%;
-background:white;
-box-shadow:0 5px 20px rgba(0,0,0,.05);
-position:fixed;
-top:0;
-right:0;
-left:0;
+box-shadow:0 5px 20px rgba(0,0,0,.06);
 z-index:1000;
 }
 
 .logo{
 font-size:2rem;
 font-weight:900;
-color:var(--pink);
+color:var(--main);
 }
 
 nav ul{
@@ -53,9 +59,26 @@ list-style:none;
 
 nav a{
 text-decoration:none;
-color:#444;
 font-weight:700;
+color:#444;
+transition:.3s;
 }
+
+nav a:hover{
+color:var(--main);
+}
+
+.cart-btn{
+background:var(--dark);
+color:white;
+border:none;
+padding:12px 22px;
+border-radius:50px;
+font-weight:700;
+cursor:pointer;
+}
+
+/* HERO */
 
 .hero{
 min-height:100vh;
@@ -63,7 +86,8 @@ display:grid;
 grid-template-columns:1fr 1fr;
 align-items:center;
 padding:120px 8%;
-background:linear-gradient(135deg,#fff7f7,#ffe3e6);
+gap:40px;
+background:linear-gradient(135deg,#fff7f8,#ffe3e8);
 }
 
 .hero h1{
@@ -74,7 +98,7 @@ color:var(--dark);
 }
 
 .hero h1 span{
-color:var(--pink);
+color:var(--main);
 }
 
 .hero p{
@@ -84,10 +108,10 @@ margin-bottom:30px;
 color:#555;
 }
 
-.btn{
+.hero-btn{
 display:inline-block;
-padding:14px 35px;
-background:var(--pink);
+padding:15px 35px;
+background:var(--main);
 color:white;
 text-decoration:none;
 border-radius:50px;
@@ -95,49 +119,53 @@ font-weight:700;
 transition:.3s;
 }
 
-.btn:hover{
+.hero-btn:hover{
 background:var(--dark);
 }
 
-.circle{
-width:420px;
-height:420px;
-border-radius:50%;
-background:radial-gradient(circle,#ffdbe0,#f4a7b2);
+.hero-image{
 display:flex;
 justify-content:center;
 align-items:center;
-font-size:8rem;
-box-shadow:0 20px 50px rgba(216,139,148,.3);
-animation:float 3s ease-in-out infinite;
 }
 
-@keyframes float{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
+.hero-image img{
+width:100%;
+max-width:500px;
+border-radius:30px;
+box-shadow:0 20px 60px rgba(0,0,0,.15);
 }
 
-.products{
-padding:80px 8%;
+/* SECTION */
+
+.section{
+padding:90px 8%;
 }
 
-.title{
+.section-title{
 text-align:center;
 margin-bottom:50px;
 }
 
-.title h2{
+.section-title h2{
 font-size:3rem;
 color:var(--dark);
+margin-bottom:10px;
 }
 
-.cards{
+.section-title p{
+color:#666;
+}
+
+/* PRODUCTS */
+
+.products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
 }
 
-.card{
+.product{
 background:white;
 border-radius:25px;
 overflow:hidden;
@@ -145,43 +173,198 @@ box-shadow:0 10px 30px rgba(0,0,0,.06);
 transition:.4s;
 }
 
-.card:hover{
+.product:hover{
 transform:translateY(-10px);
 }
 
-.card-top{
-height:220px;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:5rem;
-background:#fff0f2;
+.product img{
+width:100%;
+height:260px;
+object-fit:cover;
 }
 
-.card-body{
-padding:25px;
+.product-body{
+padding:20px;
+}
+
+.category{
+font-size:.8rem;
+color:var(--main);
+font-weight:700;
+margin-bottom:8px;
+}
+
+.product h3{
+margin-bottom:10px;
+font-size:1.2rem;
+}
+
+.product p{
+font-size:.9rem;
+line-height:1.8;
+color:#666;
+margin-bottom:15px;
 }
 
 .price{
-margin-top:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.price strong{
+font-size:1.5rem;
+color:var(--main);
+}
+
+.buy-btn{
+background:var(--main);
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:50px;
+cursor:pointer;
+font-weight:700;
+transition:.3s;
+}
+
+.buy-btn:hover{
+background:var(--dark);
+}
+
+/* CART */
+
+.cart{
+position:fixed;
+top:0;
+left:-420px;
+width:400px;
+height:100vh;
+background:white;
+box-shadow:0 0 40px rgba(0,0,0,.2);
+padding:25px;
+z-index:3000;
+transition:.4s;
+overflow:auto;
+}
+
+.cart.active{
+left:0;
+}
+
+.cart h2{
+margin-bottom:20px;
+}
+
+.cart-item{
+display:flex;
+gap:15px;
+margin-bottom:20px;
+align-items:center;
+border-bottom:1px solid #eee;
+padding-bottom:15px;
+}
+
+.cart-item img{
+width:70px;
+height:70px;
+border-radius:15px;
+object-fit:cover;
+}
+
+.total{
+margin-top:20px;
 font-size:1.4rem;
 font-weight:900;
-color:var(--pink);
+color:var(--main);
 }
+
+.checkout{
+margin-top:20px;
+width:100%;
+padding:15px;
+border:none;
+background:var(--dark);
+color:white;
+border-radius:50px;
+font-weight:700;
+cursor:pointer;
+font-size:1rem;
+}
+
+.checkout:hover{
+background:var(--main);
+}
+
+/* FEATURES */
+
+.features{
+background:#fff1f4;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.feature{
+background:white;
+padding:35px;
+border-radius:25px;
+text-align:center;
+}
+
+.feature span{
+font-size:3rem;
+display:block;
+margin-bottom:15px;
+}
+
+.feature h3{
+margin-bottom:10px;
+}
+
+/* FOOTER */
 
 footer{
 background:var(--dark);
 color:white;
 text-align:center;
-padding:40px;
-margin-top:50px;
+padding:50px 20px;
 }
 
+footer h2{
+margin-bottom:10px;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+left:25px;
+width:65px;
+height:65px;
+border-radius:50%;
+background:#25D366;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+font-size:2rem;
+text-decoration:none;
+box-shadow:0 10px 30px rgba(37,211,102,.4);
+z-index:1000;
+}
+
+/* MOBILE */
+
 @media(max-width:900px){
+
 .hero{
 grid-template-columns:1fr;
 text-align:center;
-gap:50px;
 }
 
 .hero h1{
@@ -192,95 +375,318 @@ nav ul{
 display:none;
 }
 
-.circle{
-width:280px;
-height:280px;
-font-size:5rem;
-margin:auto;
+.cart{
+width:100%;
 }
+
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- CART -->
+
+<div class="cart" id="cart">
+
+<h2>🛍 سلة المشتريات</h2>
+
+<div id="cartItems"></div>
+
+<div class="total">
+الإجمالي: <span id="total">0</span> ج
+</div>
+
+<button class="checkout">
+إتمام الشراء
+</button>
+
+</div>
+
+<!-- NAV -->
+
 <nav>
+
 <div class="logo">Rosavelle</div>
 
 <ul>
 <li><a href="#">الرئيسية</a></li>
-<li><a href="#">المنتجات</a></li>
-<li><a href="#">تواصل</a></li>
+<li><a href="#products">المنتجات</a></li>
+<li><a href="#features">المميزات</a></li>
 </ul>
+
+<button class="cart-btn" onclick="toggleCart()">
+🛍 السلة (<span id="cartCount">0</span>)
+</button>
+
 </nav>
+
+<!-- HERO -->
 
 <section class="hero">
 
 <div>
+
 <h1>
 جمالك الطبيعي يبدأ مع
 <span>Rosavelle</span>
 </h1>
 
 <p>
-منتجات عناية فاخرة للبشرة والشعر بمكونات طبيعية وجودة عالية وشحن سريع لكل مصر.
+منتجات أصلية للعناية بالبشرة والشعر بمكونات طبيعية وأسعار حقيقية وشحن سريع لكل مصر.
 </p>
 
-<a href="#" class="btn">تسوقي الآن</a>
+<a href="#products" class="hero-btn">
+تسوقي الآن
+</a>
+
 </div>
 
-<div style="display:flex;justify-content:center;">
-<div class="circle">🌸</div>
-</div>
+<div class="hero-image">
 
-</section>
-
-<section class="products">
-
-<div class="title">
-<h2>الأكثر مبيعاً</h2>
-</div>
-
-<div class="cards">
-
-<div class="card">
-<div class="card-top">✨</div>
-
-<div class="card-body">
-<h3>سيروم فيتامين C</h3>
-<p>تفتيح وإشراق للبشرة وتقليل البقع الداكنة.</p>
-<div class="price">189 ج</div>
-</div>
-</div>
-
-<div class="card">
-<div class="card-top">🌿</div>
-
-<div class="card-body">
-<h3>زيت الأرجان</h3>
-<p>يغذي الشعر ويمنحه نعومة ولمعة طبيعية.</p>
-<div class="price">220 ج</div>
-</div>
-</div>
-
-<div class="card">
-<div class="card-top">💧</div>
-
-<div class="card-body">
-<h3>كريم ترطيب</h3>
-<p>ترطيب عميق للبشرة طوال اليوم.</p>
-<div class="price">145 ج</div>
-</div>
-</div>
+<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" />
 
 </div>
 
 </section>
+
+<!-- PRODUCTS -->
+
+<section class="section" id="products">
+
+<div class="section-title">
+<h2>منتجات حقيقية</h2>
+<p>اختاري المنتج وأضيفيه للسلة مباشرة</p>
+</div>
+
+<div class="products">
+
+<!-- PRODUCT -->
+
+<div class="product">
+
+<img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1200&auto=format&fit=crop">
+
+<div class="product-body">
+
+<div class="category">العناية بالبشرة</div>
+
+<h3>La Roche-Posay Vitamin C Serum</h3>
+
+<p>
+سيروم فيتامين C لإشراقة البشرة وتقليل البقع الداكنة.
+</p>
+
+<div class="price">
+
+<strong>950 ج</strong>
+
+<button class="buy-btn"
+onclick="addToCart(
+'La Roche-Posay Vitamin C Serum',
+950,
+'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1200&auto=format&fit=crop'
+)">
+أضف للسلة
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PRODUCT -->
+
+<div class="product">
+
+<img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200&auto=format&fit=crop">
+
+<div class="product-body">
+
+<div class="category">العناية بالشعر</div>
+
+<h3>Moroccanoil Treatment</h3>
+
+<p>
+زيت أرجان احترافي لتغذية الشعر ولمعانه الطبيعي.
+</p>
+
+<div class="price">
+
+<strong>1200 ج</strong>
+
+<button class="buy-btn"
+onclick="addToCart(
+'Moroccanoil Treatment',
+1200,
+'https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200&auto=format&fit=crop'
+)">
+أضف للسلة
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PRODUCT -->
+
+<div class="product">
+
+<img src="https://images.unsplash.com/photo-1556228578-dd6c79deb0b6?q=80&w=1200&auto=format&fit=crop">
+
+<div class="product-body">
+
+<div class="category">العناية بالجسم</div>
+
+<h3>CeraVe Moisturizing Cream</h3>
+
+<p>
+كريم ترطيب عميق للبشرة الجافة والحساسة.
+</p>
+
+<div class="price">
+
+<strong>780 ج</strong>
+
+<button class="buy-btn"
+onclick="addToCart(
+'CeraVe Moisturizing Cream',
+780,
+'https://images.unsplash.com/photo-1556228578-dd6c79deb0b6?q=80&w=1200&auto=format&fit=crop'
+)">
+أضف للسلة
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="section features" id="features">
+
+<div class="section-title">
+<h2>ليه تختارينا ؟</h2>
+<p>تجربة تسوق كاملة</p>
+</div>
+
+<div class="feature-grid">
+
+<div class="feature">
+<span>🚚</span>
+<h3>شحن سريع</h3>
+<p>لكل محافظات مصر</p>
+</div>
+
+<div class="feature">
+<span>💳</span>
+<h3>دفع عند الاستلام</h3>
+<p>سهولة وأمان في الطلب</p>
+</div>
+
+<div class="feature">
+<span>🌿</span>
+<h3>منتجات أصلية</h3>
+<p>ماركات موثوقة وعالمية</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
 
 <footer>
+
 <h2>Rosavelle Beauty</h2>
-<p>جمالك الطبيعي يستحق الأفضل ✨</p>
+
+<p>
+جمالك الطبيعي يستحق الأفضل ✨
+</p>
+
 </footer>
+
+<a class="whatsapp"
+href="https://wa.me/201000000000">
+💬
+</a>
+
+<script>
+
+let cart = [];
+
+function toggleCart(){
+
+document.getElementById('cart')
+.classList.toggle('active');
+
+}
+
+function addToCart(name,price,image){
+
+cart.push({
+name,
+price,
+image
+});
+
+renderCart();
+
+}
+
+function renderCart(){
+
+const container =
+document.getElementById('cartItems');
+
+const total =
+document.getElementById('total');
+
+const count =
+document.getElementById('cartCount');
+
+container.innerHTML='';
+
+let totalPrice = 0;
+
+cart.forEach(item=>{
+
+totalPrice += item.price;
+
+container.innerHTML += `
+
+<div class="cart-item">
+
+<img src="${item.image}">
+
+<div>
+<h4>${item.name}</h4>
+<p>${item.price} ج</p>
+</div>
+
+</div>
+
+`;
+
+});
+
+total.innerHTML = totalPrice;
+
+count.innerHTML = cart.length;
+
+}
+
+</script>
 
 </body>
 </html>

@@ -1,629 +1,6 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Rosavelle Store</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:'Cairo',sans-serif;
-background:#fff8f8;
-overflow-x:hidden;
-color:#222;
-}
-
-:root{
---main:#d88995;
---dark:#2c1d20;
---gold:#c5a46b;
---light:#fff1f3;
-}
-
-/* NAV */
-
-nav{
-position:fixed;
-top:0;
-left:0;
-right:0;
-background:white;
-padding:18px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 5px 20px rgba(0,0,0,.06);
-z-index:1000;
-}
-
-.logo{
-font-size:2rem;
-font-weight:900;
-color:var(--main);
-}
-
-nav ul{
-display:flex;
-gap:25px;
-list-style:none;
-}
-
-nav a{
-text-decoration:none;
-font-weight:700;
-color:#444;
-transition:.3s;
-}
-
-nav a:hover{
-color:var(--main);
-}
-
-.cart-btn{
-background:var(--dark);
-color:white;
-border:none;
-padding:12px 22px;
-border-radius:50px;
-font-weight:700;
-cursor:pointer;
-}
-
-/* HERO */
-
-.hero{
-min-height:100vh;
-display:grid;
-grid-template-columns:1fr 1fr;
-align-items:center;
-padding:120px 8%;
-gap:40px;
-background:linear-gradient(135deg,#fff7f8,#ffe3e8);
-}
-
-.hero h1{
-font-size:4rem;
-line-height:1.2;
-margin-bottom:20px;
-color:var(--dark);
-}
-
-.hero h1 span{
-color:var(--main);
-}
-
-.hero p{
-font-size:1.1rem;
-line-height:2;
-margin-bottom:30px;
-color:#555;
-}
-
-.hero-btn{
-display:inline-block;
-padding:15px 35px;
-background:var(--main);
-color:white;
-text-decoration:none;
-border-radius:50px;
-font-weight:700;
-transition:.3s;
-}
-
-.hero-btn:hover{
-background:var(--dark);
-}
-
-.hero-image{
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-.hero-image img{
-width:100%;
-max-width:500px;
-border-radius:30px;
-box-shadow:0 20px 60px rgba(0,0,0,.15);
-}
-
-/* SECTION */
-
-.section{
-padding:90px 8%;
-}
-
-.section-title{
-text-align:center;
-margin-bottom:50px;
-}
-
-.section-title h2{
-font-size:3rem;
-color:var(--dark);
-margin-bottom:10px;
-}
-
-.section-title p{
-color:#666;
-}
-
-/* PRODUCTS */
-
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-}
-
-.product{
-background:white;
-border-radius:25px;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,.06);
-transition:.4s;
-}
-
-.product:hover{
-transform:translateY(-10px);
-}
-
-.product img{
-width:100%;
-height:260px;
-object-fit:cover;
-}
-
-.product-body{
-padding:20px;
-}
-
-.category{
-font-size:.8rem;
-color:var(--main);
-font-weight:700;
-margin-bottom:8px;
-}
-
-.product h3{
-margin-bottom:10px;
-font-size:1.2rem;
-}
-
-.product p{
-font-size:.9rem;
-line-height:1.8;
-color:#666;
-margin-bottom:15px;
-}
-
-.price{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.price strong{
-font-size:1.5rem;
-color:var(--main);
-}
-
-.buy-btn{
-background:var(--main);
-color:white;
-border:none;
-padding:12px 18px;
-border-radius:50px;
-cursor:pointer;
-font-weight:700;
-transition:.3s;
-}
-
-.buy-btn:hover{
-background:var(--dark);
-}
-
-/* CART */
-
-.cart{
-position:fixed;
-top:0;
-left:-420px;
-width:400px;
-height:100vh;
-background:white;
-box-shadow:0 0 40px rgba(0,0,0,.2);
-padding:25px;
-z-index:3000;
-transition:.4s;
-overflow:auto;
-}
-
-.cart.active{
-left:0;
-}
-
-.cart h2{
-margin-bottom:20px;
-}
-
-.cart-item{
-display:flex;
-gap:15px;
-margin-bottom:20px;
-align-items:center;
-border-bottom:1px solid #eee;
-padding-bottom:15px;
-}
-
-.cart-item img{
-width:70px;
-height:70px;
-border-radius:15px;
-object-fit:cover;
-}
-
-.total{
-margin-top:20px;
-font-size:1.4rem;
-font-weight:900;
-color:var(--main);
-}
-
-.checkout{
-margin-top:20px;
-width:100%;
-padding:15px;
-border:none;
-background:var(--dark);
-color:white;
-border-radius:50px;
-font-weight:700;
-cursor:pointer;
-font-size:1rem;
-}
-
-.checkout:hover{
-background:var(--main);
-}
-
-/* FEATURES */
-
-.features{
-background:#fff1f4;
-}
-
-.feature-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.feature{
-background:white;
-padding:35px;
-border-radius:25px;
-text-align:center;
-}
-
-.feature span{
-font-size:3rem;
-display:block;
-margin-bottom:15px;
-}
-
-.feature h3{
-margin-bottom:10px;
-}
-
-/* FOOTER */
-
-footer{
-background:var(--dark);
-color:white;
-text-align:center;
-padding:50px 20px;
-}
-
-footer h2{
-margin-bottom:10px;
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-position:fixed;
-bottom:25px;
-left:25px;
-width:65px;
-height:65px;
-border-radius:50%;
-background:#25D366;
-display:flex;
-justify-content:center;
-align-items:center;
-color:white;
-font-size:2rem;
-text-decoration:none;
-box-shadow:0 10px 30px rgba(37,211,102,.4);
-z-index:1000;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.hero{
-grid-template-columns:1fr;
-text-align:center;
-}
-
-.hero h1{
-font-size:2.7rem;
-}
-
-nav ul{
-display:none;
-}
-
-.cart{
-width:100%;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- CART -->
-
-<div class="cart" id="cart">
-
-<h2>🛍 سلة المشتريات</h2>
-
-<div id="cartItems"></div>
-
-<div class="total">
-الإجمالي: <span id="total">0</span> ج
-</div>
-
-<button class="checkout">
-إتمام الشراء
-</button>
-
-</div>
-
-<!-- NAV -->
-
-<nav>
-
-<div class="logo">Rosavelle</div>
-
-<ul>
-<li><a href="#">الرئيسية</a></li>
-<li><a href="#products">المنتجات</a></li>
-<li><a href="#features">المميزات</a></li>
-</ul>
-
-<button class="cart-btn" onclick="toggleCart()">
-🛍 السلة (<span id="cartCount">0</span>)
-</button>
-
-</nav>
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div>
-
-<h1>
-جمالك الطبيعي يبدأ مع
-<span>Rosavelle</span>
-</h1>
-
-<p>
-منتجات أصلية للعناية بالبشرة والشعر بمكونات طبيعية وأسعار حقيقية وشحن سريع لكل مصر.
-</p>
-
-<a href="#products" class="hero-btn">
-تسوقي الآن
-</a>
-
-</div>
-
-<div class="hero-image">
-
-<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" />
-
-</div>
-
-</section>
-
-<!-- PRODUCTS -->
-
-<section class="section" id="products">
-
-<div class="section-title">
-<h2>منتجات حقيقية</h2>
-<p>اختاري المنتج وأضيفيه للسلة مباشرة</p>
-</div>
-
-<div class="products">
-
-<!-- PRODUCT -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1200&auto=format&fit=crop">
-
-<div class="product-body">
-
-<div class="category">العناية بالبشرة</div>
-
-<h3>La Roche-Posay Vitamin C Serum</h3>
-
-<p>
-سيروم فيتامين C لإشراقة البشرة وتقليل البقع الداكنة.
-</p>
-
-<div class="price">
-
-<strong>950 ج</strong>
-
-<button class="buy-btn"
-onclick="addToCart(
-'La Roche-Posay Vitamin C Serum',
-950,
-'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1200&auto=format&fit=crop'
-)">
-أضف للسلة
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- PRODUCT -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200&auto=format&fit=crop">
-
-<div class="product-body">
-
-<div class="category">العناية بالشعر</div>
-
-<h3>Moroccanoil Treatment</h3>
-
-<p>
-زيت أرجان احترافي لتغذية الشعر ولمعانه الطبيعي.
-</p>
-
-<div class="price">
-
-<strong>1200 ج</strong>
-
-<button class="buy-btn"
-onclick="addToCart(
-'Moroccanoil Treatment',
-1200,
-'https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200&auto=format&fit=crop'
-)">
-أضف للسلة
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- PRODUCT -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1556228578-dd6c79deb0b6?q=80&w=1200&auto=format&fit=crop">
-
-<div class="product-body">
-
-<div class="category">العناية بالجسم</div>
-
-<h3>CeraVe Moisturizing Cream</h3>
-
-<p>
-كريم ترطيب عميق للبشرة الجافة والحساسة.
-</p>
-
-<div class="price">
-
-<strong>780 ج</strong>
-
-<button class="buy-btn"
-onclick="addToCart(
-'CeraVe Moisturizing Cream',
-780,
-'https://images.unsplash.com/photo-1556228578-dd6c79deb0b6?q=80&w=1200&auto=format&fit=crop'
-)">
-أضف للسلة
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- FEATURES -->
-
-<section class="section features" id="features">
-
-<div class="section-title">
-<h2>ليه تختارينا ؟</h2>
-<p>تجربة تسوق كاملة</p>
-</div>
-
-<div class="feature-grid">
-
-<div class="feature">
-<span>🚚</span>
-<h3>شحن سريع</h3>
-<p>لكل محافظات مصر</p>
-</div>
-
-<div class="feature">
-<span>💳</span>
-<h3>دفع عند الاستلام</h3>
-<p>سهولة وأمان في الطلب</p>
-</div>
-
-<div class="feature">
-<span>🌿</span>
-<h3>منتجات أصلية</h3>
-<p>ماركات موثوقة وعالمية</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-<h2>Rosavelle Beauty</h2>
-
-<p>
-جمالك الطبيعي يستحق الأفضل ✨
-</p>
-
-</footer>
-
-<a class="whatsapp"
-href="https://wa.me/201000000000">
-💬
-</a>
-
 <script>
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function toggleCart(){
 
@@ -640,7 +17,25 @@ price,
 image
 });
 
+saveCart();
 renderCart();
+
+alert('تم إضافة المنتج للسلة ✅');
+
+}
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+saveCart();
+renderCart();
+
+}
+
+function saveCart(){
+
+localStorage.setItem('cart',JSON.stringify(cart));
 
 }
 
@@ -659,7 +54,7 @@ container.innerHTML='';
 
 let totalPrice = 0;
 
-cart.forEach(item=>{
+cart.forEach((item,index)=>{
 
 totalPrice += item.price;
 
@@ -669,9 +64,26 @@ container.innerHTML += `
 
 <img src="${item.image}">
 
-<div>
+<div style="flex:1">
+
 <h4>${item.name}</h4>
+
 <p>${item.price} ج</p>
+
+<button
+onclick="removeItem(${index})"
+style="
+margin-top:8px;
+border:none;
+background:#d88995;
+color:white;
+padding:6px 12px;
+border-radius:20px;
+cursor:pointer;
+">
+حذف
+</button>
+
 </div>
 
 </div>
@@ -686,7 +98,37 @@ count.innerHTML = cart.length;
 
 }
 
-</script>
+function checkout(){
 
-</body>
-</html>
+if(cart.length === 0){
+
+alert('السلة فارغة');
+
+return;
+
+}
+
+let message = 'مرحباً، أريد طلب المنتجات التالية:%0A%0A';
+
+let total = 0;
+
+cart.forEach(item=>{
+
+message += `• ${item.name} - ${item.price} ج%0A`;
+
+total += item.price;
+
+});
+
+message += `%0Aالإجمالي: ${total} ج`;
+
+window.open(
+`https://wa.me/201000000000?text=${message}`,
+'_blank'
+);
+
+}
+
+renderCart();
+
+</script>

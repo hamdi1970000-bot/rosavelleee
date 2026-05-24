@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rosavelle Beauty</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Cairo',sans-serif;
+background:#fff7f7;
+overflow-x:hidden;
+}
+
+:root{
+--pink:#d88b94;
+--dark:#2d1f21;
+--gold:#c8a46a;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:white;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+position:fixed;
+top:0;
+right:0;
+left:0;
+z-index:1000;
+}
+
+.logo{
+font-size:2rem;
+font-weight:900;
+color:var(--pink);
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+color:#444;
+font-weight:700;
+}
+
+.hero{
+min-height:100vh;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+padding:120px 8%;
+background:linear-gradient(135deg,#fff7f7,#ffe3e6);
+}
+
+.hero h1{
+font-size:4rem;
+line-height:1.2;
+margin-bottom:20px;
+color:var(--dark);
+}
+
+.hero h1 span{
+color:var(--pink);
+}
+
+.hero p{
+font-size:1.1rem;
+line-height:2;
+margin-bottom:30px;
+color:#555;
+}
+
+.btn{
+display:inline-block;
+padding:14px 35px;
+background:var(--pink);
+color:white;
+text-decoration:none;
+border-radius:50px;
+font-weight:700;
+transition:.3s;
+}
+
+.btn:hover{
+background:var(--dark);
+}
+
+.circle{
+width:420px;
+height:420px;
+border-radius:50%;
+background:radial-gradient(circle,#ffdbe0,#f4a7b2);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:8rem;
+box-shadow:0 20px 50px rgba(216,139,148,.3);
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+}
+
+.products{
+padding:80px 8%;
+}
+
+.title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.title h2{
+font-size:3rem;
+color:var(--dark);
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+border-radius:25px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.06);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card-top{
+height:220px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:5rem;
+background:#fff0f2;
+}
+
+.card-body{
+padding:25px;
+}
+
+.price{
+margin-top:15px;
+font-size:1.4rem;
+font-weight:900;
+color:var(--pink);
+}
+
+footer{
+background:var(--dark);
+color:white;
+text-align:center;
+padding:40px;
+margin-top:50px;
+}
+
+@media(max-width:900px){
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+gap:50px;
+}
+
+.hero h1{
+font-size:2.7rem;
+}
+
+nav ul{
+display:none;
+}
+
+.circle{
+width:280px;
+height:280px;
+font-size:5rem;
+margin:auto;
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">Rosavelle</div>
+
+<ul>
+<li><a href="#">الرئيسية</a></li>
+<li><a href="#">المنتجات</a></li>
+<li><a href="#">تواصل</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+
+<div>
+<h1>
+جمالك الطبيعي يبدأ مع
+<span>Rosavelle</span>
+</h1>
+
+<p>
+منتجات عناية فاخرة للبشرة والشعر بمكونات طبيعية وجودة عالية وشحن سريع لكل مصر.
+</p>
+
+<a href="#" class="btn">تسوقي الآن</a>
+</div>
+
+<div style="display:flex;justify-content:center;">
+<div class="circle">🌸</div>
+</div>
+
+</section>
+
+<section class="products">
+
+<div class="title">
+<h2>الأكثر مبيعاً</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-top">✨</div>
+
+<div class="card-body">
+<h3>سيروم فيتامين C</h3>
+<p>تفتيح وإشراق للبشرة وتقليل البقع الداكنة.</p>
+<div class="price">189 ج</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-top">🌿</div>
+
+<div class="card-body">
+<h3>زيت الأرجان</h3>
+<p>يغذي الشعر ويمنحه نعومة ولمعة طبيعية.</p>
+<div class="price">220 ج</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-top">💧</div>
+
+<div class="card-body">
+<h3>كريم ترطيب</h3>
+<p>ترطيب عميق للبشرة طوال اليوم.</p>
+<div class="price">145 ج</div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+<h2>Rosavelle Beauty</h2>
+<p>جمالك الطبيعي يستحق الأفضل ✨</p>
+</footer>
+
+</body>
+</html>

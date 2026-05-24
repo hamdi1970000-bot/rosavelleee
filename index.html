@@ -1,23 +1,696 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rosavelleee Beauty Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Cairo',sans-serif;
+background:#fff8f8;
+overflow-x:hidden;
+color:#222;
+}
+
+:root{
+--main:#d88995;
+--dark:#2d1f21;
+--light:#fff1f4;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+right:0;
+background:white;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 5px 20px rgba(0,0,0,.06);
+z-index:999;
+}
+
+.logo{
+font-size:2rem;
+font-weight:900;
+color:var(--main);
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+font-weight:700;
+color:#444;
+transition:.3s;
+}
+
+nav a:hover{
+color:var(--main);
+}
+
+.cart-btn{
+background:var(--dark);
+color:white;
+border:none;
+padding:12px 22px;
+border-radius:50px;
+font-weight:700;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+padding:120px 8%;
+gap:50px;
+background:linear-gradient(135deg,#fff7f8,#ffe3e8);
+}
+
+.hero h1{
+font-size:4rem;
+line-height:1.2;
+margin-bottom:20px;
+color:var(--dark);
+}
+
+.hero h1 span{
+color:var(--main);
+}
+
+.hero p{
+font-size:1.1rem;
+line-height:2;
+margin-bottom:30px;
+color:#555;
+}
+
+.hero-btn{
+display:inline-block;
+padding:15px 35px;
+background:var(--main);
+color:white;
+text-decoration:none;
+border-radius:50px;
+font-weight:700;
+transition:.3s;
+}
+
+.hero-btn:hover{
+background:var(--dark);
+}
+
+.hero-image img{
+width:100%;
+max-width:500px;
+border-radius:30px;
+box-shadow:0 20px 60px rgba(0,0,0,.15);
+}
+
+/* SECTION */
+
+.section{
+padding:90px 8%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.section-title h2{
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.section-title p{
+color:#666;
+}
+
+/* SEARCH */
+
+.search-box{
+display:flex;
+justify-content:center;
+margin-bottom:40px;
+}
+
+.search-box input{
+width:350px;
+max-width:100%;
+padding:15px 20px;
+border:none;
+border-radius:50px;
+font-size:1rem;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+outline:none;
+}
+
+/* PRODUCTS */
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.product{
+background:white;
+border-radius:25px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.07);
+transition:.4s;
+}
+
+.product:hover{
+transform:translateY(-10px);
+}
+
+.product img{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+
+.product-body{
+padding:20px;
+}
+
+.category{
+font-size:.8rem;
+font-weight:700;
+color:var(--main);
+margin-bottom:8px;
+}
+
+.product h3{
+margin-bottom:10px;
+font-size:1.15rem;
+}
+
+.product p{
+font-size:.9rem;
+line-height:1.8;
+color:#666;
+margin-bottom:15px;
+}
+
+.price{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.price strong{
+font-size:1.5rem;
+color:var(--main);
+}
+
+.buy-btn{
+background:var(--main);
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:50px;
+cursor:pointer;
+font-weight:700;
+transition:.3s;
+}
+
+.buy-btn:hover{
+background:var(--dark);
+}
+
+/* FEATURES */
+
+.features{
+background:var(--light);
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.feature{
+background:white;
+padding:35px;
+border-radius:25px;
+text-align:center;
+}
+
+.feature span{
+font-size:3rem;
+display:block;
+margin-bottom:15px;
+}
+
+/* CART */
+
+.cart{
+position:fixed;
+top:0;
+left:-420px;
+width:400px;
+height:100vh;
+background:white;
+padding:25px;
+box-shadow:0 0 40px rgba(0,0,0,.2);
+transition:.4s;
+z-index:3000;
+overflow:auto;
+}
+
+.cart.active{
+left:0;
+}
+
+.cart h2{
+margin-bottom:20px;
+}
+
+.cart-item{
+display:flex;
+gap:15px;
+margin-bottom:20px;
+padding-bottom:15px;
+border-bottom:1px solid #eee;
+}
+
+.cart-item img{
+width:70px;
+height:70px;
+object-fit:cover;
+border-radius:15px;
+}
+
+.total{
+margin-top:20px;
+font-size:1.4rem;
+font-weight:900;
+color:var(--main);
+}
+
+.checkout{
+margin-top:20px;
+width:100%;
+padding:15px;
+background:var(--dark);
+color:white;
+border:none;
+border-radius:50px;
+font-weight:700;
+cursor:pointer;
+font-size:1rem;
+}
+
+.checkout:hover{
+background:var(--main);
+}
+
+/* FOOTER */
+
+footer{
+background:var(--dark);
+color:white;
+text-align:center;
+padding:50px 20px;
+}
+
+footer h2{
+margin-bottom:10px;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+left:25px;
+width:65px;
+height:65px;
+background:#25D366;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:50%;
+font-size:2rem;
+text-decoration:none;
+box-shadow:0 10px 30px rgba(37,211,102,.4);
+z-index:1000;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.hero h1{
+font-size:2.8rem;
+}
+
+nav ul{
+display:none;
+}
+
+.cart{
+width:100%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- CART -->
+
+<div class="cart" id="cart">
+
+<h2>🛍 سلة المشتريات</h2>
+
+<div id="cartItems"></div>
+
+<div class="total">
+الإجمالي:
+<span id="total">0</span>
+ج
+</div>
+
+<button class="checkout" onclick="checkout()">
+إتمام الطلب عبر واتساب
+</button>
+
+</div>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">Rosavelleee</div>
+
+<ul>
+<li><a href="#">الرئيسية</a></li>
+<li><a href="#products">المنتجات</a></li>
+<li><a href="#features">المميزات</a></li>
+</ul>
+
+<button class="cart-btn" onclick="toggleCart()">
+🛍 السلة (
+<span id="cartCount">0</span>
+)
+</button>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div>
+
+<h1>
+الجمال الحقيقي يبدأ مع
+<span>Rosavelleee</span>
+</h1>
+
+<p>
+منتجات أصلية للعناية بالبشرة والشعر بأسعار مصرية وصور حقيقية وتجربة تسوق كاملة.
+</p>
+
+<a href="#products" class="hero-btn">
+ابدئي التسوق
+</a>
+
+</div>
+
+<div class="hero-image">
+
+<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="section" id="products">
+
+<div class="section-title">
+<h2>منتجات Rosavelleee</h2>
+<p>منتجات حقيقية بأسعار مصرية</p>
+</div>
+
+<div class="search-box">
+<input
+type="text"
+id="searchInput"
+placeholder="ابحثي عن منتج..."
+onkeyup="searchProducts()">
+</div>
+
+<div class="products" id="productsContainer"></div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="section features" id="features">
+
+<div class="section-title">
+<h2>ليه Rosavelleee ؟</h2>
+<p>تجربة تسوق كاملة وآمنة</p>
+</div>
+
+<div class="feature-grid">
+
+<div class="feature">
+<span>🚚</span>
+<h3>شحن سريع</h3>
+<p>لكل محافظات مصر</p>
+</div>
+
+<div class="feature">
+<span>💳</span>
+<h3>دفع عند الاستلام</h3>
+<p>سهولة وأمان في الطلب</p>
+</div>
+
+<div class="feature">
+<span>🌿</span>
+<h3>منتجات أصلية</h3>
+<p>ماركات موثوقة وصور حقيقية</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h2>Rosavelleee Beauty</h2>
+
+<p>
+جمالك الطبيعي يستحق الأفضل ✨
+</p>
+
+</footer>
+
+<!-- WHATSAPP -->
+
+<a class="whatsapp"
+href="https://wa.me/201000000000">
+💬
+</a>
+
 <script>
 
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+/* PRODUCTS */
+
+const products = [
+
+{
+id:1,
+name:"Rosavelleee Bobana Sunscreen Gel",
+price:350,
+category:"العناية بالبشرة",
+image:"https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1200&auto=format&fit=crop",
+description:"واقي شمس جل للبشرة الدهنية والحساسة."
+},
+
+{
+id:2,
+name:"Rosavelleee Vitamin C Face Wash",
+price:85,
+category:"غسول",
+image:"https://images.unsplash.com/photo-1556228578-dd6c79deb0b6?q=80&w=1200&auto=format&fit=crop",
+description:"غسول فيتامين C لتنظيف وإشراق البشرة."
+},
+
+{
+id:3,
+name:"Rosavelleee Argan Leave In",
+price:75,
+category:"العناية بالشعر",
+image:"https://images.unsplash.com/photo-1526947425960-945c6e72858f?q=80&w=1200&auto=format&fit=crop",
+description:"ليف إن بزيت الأرجان لتغذية الشعر."
+},
+
+{
+id:4,
+name:"Rosavelleee Hyaluronic Face Wash",
+price:85,
+category:"العناية بالبشرة",
+image:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1200&auto=format&fit=crop",
+description:"غسول بحمض الهيالورونيك لترطيب البشرة."
+},
+
+{
+id:5,
+name:"Rosavelleee Body Lotion Coconut",
+price:155,
+category:"العناية بالجسم",
+image:"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
+description:"لوشن جوز الهند لترطيب الجسم."
+},
+
+{
+id:6,
+name:"Rosavelleee Lip Balm",
+price:60,
+category:"العناية بالشفاه",
+image:"https://images.unsplash.com/photo-1580870069867-74c57ee1bb07?q=80&w=1200&auto=format&fit=crop",
+description:"مرطب شفاه طبيعي يدوم طويلاً."
+}
+
+];
+
+/* RENDER PRODUCTS */
+
+function renderProducts(items = products){
+
+const container =
+document.getElementById('productsContainer');
+
+container.innerHTML = '';
+
+items.forEach(product=>{
+
+container.innerHTML += `
+
+<div class="product">
+
+<img src="${product.image}">
+
+<div class="product-body">
+
+<div class="category">
+${product.category}
+</div>
+
+<h3>${product.name}</h3>
+
+<p>${product.description}</p>
+
+<div class="price">
+
+<strong>${product.price} ج</strong>
+
+<button
+class="buy-btn"
+onclick="addToCart(${product.id})">
+أضف للسلة
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+/* SEARCH */
+
+function searchProducts(){
+
+const value =
+document.getElementById('searchInput')
+.value
+.toLowerCase();
+
+const filtered =
+products.filter(product=>
+
+product.name.toLowerCase().includes(value)
+
+);
+
+renderProducts(filtered);
+
+}
+
+/* CART */
+
+let cart =
+JSON.parse(localStorage.getItem('cart'))
+|| [];
 
 function toggleCart(){
 
-document.getElementById('cart')
+document
+.getElementById('cart')
 .classList.toggle('active');
 
 }
 
-function addToCart(name,price,image){
+function addToCart(id){
 
-cart.push({
-name,
-price,
-image
-});
+const product =
+products.find(p=>p.id===id);
+
+cart.push(product);
 
 saveCart();
+
 renderCart();
 
 alert('تم إضافة المنتج للسلة ✅');
@@ -29,13 +702,17 @@ function removeItem(index){
 cart.splice(index,1);
 
 saveCart();
+
 renderCart();
 
 }
 
 function saveCart(){
 
-localStorage.setItem('cart',JSON.stringify(cart));
+localStorage.setItem(
+'cart',
+JSON.stringify(cart)
+);
 
 }
 
@@ -98,6 +775,8 @@ count.innerHTML = cart.length;
 
 }
 
+/* CHECKOUT */
+
 function checkout(){
 
 if(cart.length === 0){
@@ -108,19 +787,22 @@ return;
 
 }
 
-let message = 'مرحباً، أريد طلب المنتجات التالية:%0A%0A';
+let message =
+'مرحباً، أريد طلب المنتجات التالية:%0A%0A';
 
 let total = 0;
 
 cart.forEach(item=>{
 
-message += `• ${item.name} - ${item.price} ج%0A`;
+message +=
+`• ${item.name} - ${item.price} ج%0A`;
 
 total += item.price;
 
 });
 
-message += `%0Aالإجمالي: ${total} ج`;
+message +=
+`%0Aالإجمالي: ${total} ج`;
 
 window.open(
 `https://wa.me/201000000000?text=${message}`,
@@ -129,6 +811,13 @@ window.open(
 
 }
 
+/* INIT */
+
+renderProducts();
+
 renderCart();
 
 </script>
+
+</body>
+</html>

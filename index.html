@@ -452,38 +452,51 @@ font-size:1rem;
 /* SOCIAL */
 
 .socials{
-margin-top:30px;
+margin-top:35px;
 display:flex;
 justify-content:center;
-gap:18px;
+gap:20px;
 flex-wrap:wrap;
 }
 
-.socials a{
+.social{
+display:flex;
+align-items:center;
+gap:12px;
 text-decoration:none;
+padding:14px 24px;
+border-radius:70px;
 background:white;
-padding:13px 20px;
-border-radius:50px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.35s;
 font-weight:700;
-color:#24131a;
-transition:.3s;
+color:#222;
 }
 
-.socials a:hover{
-transform:translateY(-6px);
-background:var(--gradient);
+.social:hover{
+transform:translateY(-8px) scale(1.04);
+}
+
+.social img{
+width:28px;
+height:28px;
+object-fit:contain;
+}
+
+.instagram:hover{
+background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);
 color:white;
 }
 
-/* FOOTER */
-
-footer{
-background:#24131a;
+.tiktok:hover{
+background:#000;
 color:white;
-text-align:center;
-padding:60px 20px;
 }
 
+.facebook:hover{
+background:#1877f2;
+color:white;
+}
 /* WHATSAPP */
 
 .whatsapp{
@@ -728,22 +741,33 @@ Rosavelleee Beauty
 
 <div class="socials">
 
-<a href="https://instagram.com/" target="_blank">
+<div class="socials">
 
-📸 Instagram
+<a href="https://www.instagram.com/mo7med_7amdi?igsh=MW92am01ZGx4cnF4Zg%3D%3D&utm_source=qr" target="_blank" class="social instagram">
 
-</a>
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
 
-<a href="https://tiktok.com/" target="_blank">
-
-🎵 TikTok
+<span>Instagram</span>
 
 </a>
 
-<a href="https://facebook.com/" target="_blank">
+<a href="https://www.tiktok.com/@mo7amed_7amdi0?_r=1&_t=ZS-96en8NqHSDc" target="_blank" class="social tiktok">
 
-📘 Facebook
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
 
+<span>TikTok</span>
+
+</a>
+
+<a href="https://www.facebook.com/share/18tdHbf7Dx/?mibextid=wwXIfr" target="_blank" class="social facebook">
+
+<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+
+<span>Facebook</span>
+
+</a>
+
+</div>
 </a>
 
 </div>

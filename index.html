@@ -454,7 +454,366 @@ width:100%;
 </style>
 
 </head>
+<!-- MINI AI ROBOT -->
 
+<div class="mini-ai-container">
+
+<div class="mini-ai-bot" onclick="toggleMiniChat()">
+
+<img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png">
+
+</div>
+
+<div class="mini-chat" id="miniChat">
+
+<div class="mini-header">
+
+Rosavelleee AI ✨
+
+<span onclick="toggleMiniChat()">✖</span>
+
+</div>
+
+<div class="mini-messages" id="miniMessages">
+
+<div class="mini-bot-msg">
+
+أهلاً بيكي 💖  
+أنا مساعد الجمال الخاص بـ Rosavelleee ✨
+
+</div>
+
+</div>
+
+<div class="mini-input">
+
+<input
+type="text"
+id="miniInput"
+placeholder="اسأليني بسرعة..."
+onkeypress="miniKey(event)">
+
+<button onclick="sendMiniMessage()">
+
+➤
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<style>
+
+/* CONTAINER */
+
+.mini-ai-container{
+
+position:fixed;
+right:20px;
+bottom:25px;
+z-index:999999;
+
+}
+
+/* ROBOT */
+
+.mini-ai-bot{
+
+width:78px;
+height:78px;
+border-radius:50%;
+background:linear-gradient(135deg,#ff5f8f,#ff9ab6);
+display:flex;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+box-shadow:0 15px 35px rgba(0,0,0,.2);
+
+animation:floatBot 3s ease-in-out infinite;
+
+transition:.3s;
+
+}
+
+.mini-ai-bot:hover{
+
+transform:scale(1.08);
+
+}
+
+.mini-ai-bot img{
+
+width:45px;
+height:45px;
+
+}
+
+@keyframes floatBot{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+/* CHAT */
+
+.mini-chat{
+
+position:absolute;
+bottom:95px;
+right:0;
+width:320px;
+height:430px;
+background:white;
+border-radius:28px;
+overflow:hidden;
+display:none;
+flex-direction:column;
+box-shadow:0 25px 60px rgba(0,0,0,.18);
+
+}
+
+/* HEADER */
+
+.mini-header{
+
+background:linear-gradient(135deg,#ff5f8f,#ff9ab6);
+color:white;
+padding:18px;
+font-weight:700;
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+}
+
+.mini-header span{
+cursor:pointer;
+}
+
+/* MESSAGES */
+
+.mini-messages{
+
+flex:1;
+padding:18px;
+overflow:auto;
+display:flex;
+flex-direction:column;
+gap:12px;
+background:#fff7fb;
+
+}
+
+.mini-bot-msg,
+.mini-user-msg{
+
+padding:13px 16px;
+border-radius:18px;
+max-width:85%;
+line-height:1.8;
+font-size:.92rem;
+
+}
+
+.mini-bot-msg{
+
+background:#ffe0ea;
+align-self:flex-start;
+
+}
+
+.mini-user-msg{
+
+background:#24131a;
+color:white;
+align-self:flex-end;
+
+}
+
+/* INPUT */
+
+.mini-input{
+
+display:flex;
+gap:10px;
+padding:15px;
+background:white;
+border-top:1px solid #eee;
+
+}
+
+.mini-input input{
+
+flex:1;
+padding:14px;
+border:none;
+border-radius:50px;
+background:#f4f4f4;
+outline:none;
+
+}
+
+.mini-input button{
+
+width:50px;
+border:none;
+border-radius:50%;
+background:linear-gradient(135deg,#ff5f8f,#ff9ab6);
+color:white;
+font-size:1.1rem;
+cursor:pointer;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.mini-chat{
+
+width:92vw;
+right:-5px;
+height:72vh;
+
+}
+
+.mini-ai-bot{
+
+width:68px;
+height:68px;
+
+}
+
+}
+
+</style>
+
+<script>
+
+function toggleMiniChat(){
+
+const chat =
+document.getElementById("miniChat");
+
+if(chat.style.display === "flex"){
+
+chat.style.display = "none";
+
+}else{
+
+chat.style.display = "flex";
+
+}
+
+}
+
+function miniKey(e){
+
+if(e.key === "Enter"){
+
+sendMiniMessage();
+
+}
+
+}
+
+function sendMiniMessage(){
+
+const input =
+document.getElementById("miniInput");
+
+const messages =
+document.getElementById("miniMessages");
+
+const text =
+input.value.trim();
+
+if(!text) return;
+
+messages.innerHTML += `
+
+<div class="mini-user-msg">
+
+${text}
+
+</div>
+
+`;
+
+input.value = "";
+
+setTimeout(()=>{
+
+let reply = "";
+
+const msg = text.toLowerCase();
+
+if(msg.includes("دهنية")){
+
+reply =
+"💖 أنصحك بـ Sunscreen SPF 50 لأنه خفيف جدًا ومناسب للبشرة الدهنية ✨";
+
+}
+
+else if(msg.includes("شعر")){
+
+reply =
+"✨ Hair Serum ممتاز لتقليل الهيشان ولمعان الشعر 💆‍♀️";
+
+}
+
+else if(msg.includes("شحن")){
+
+reply =
+"🚚 الشحن مجاني للطلبات فوق 550 جنيه.";
+
+}
+
+else if(msg.includes("سعر")){
+
+reply =
+"💖 الأسعار تبدأ من 60 جنيه فقط.";
+
+}
+
+else{
+
+reply =
+"✨ قوليلي نوع بشرتك وأنا أرشحلك الأفضل 💖";
+
+}
+
+messages.innerHTML += `
+
+<div class="mini-bot-msg">
+
+${reply}
+
+</div>
+
+`;
+
+messages.scrollTop =
+messages.scrollHeight;
+
+},700);
+
+}
+
+</script>
 <body>
 
 <div class="top-bar">

@@ -32,8 +32,6 @@ color:#222;
 --light:#fff1f4;
 }
 
-/* NAV */
-
 nav{
 position:fixed;
 top:0;
@@ -75,8 +73,6 @@ border-radius:50px;
 font-weight:700;
 cursor:pointer;
 }
-
-/* HERO */
 
 .hero{
 min-height:100vh;
@@ -123,8 +119,6 @@ border-radius:30px;
 box-shadow:0 20px 60px rgba(0,0,0,.15);
 }
 
-/* SECTION */
-
 .section{
 padding:90px 8%;
 }
@@ -154,8 +148,6 @@ box-shadow:0 5px 20px rgba(0,0,0,.08);
 outline:none;
 }
 
-/* PRODUCTS */
-
 .products{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -169,7 +161,6 @@ overflow:hidden;
 box-shadow:0 10px 30px rgba(0,0,0,.07);
 transition:.4s;
 cursor:pointer;
-position:relative;
 }
 
 .product:hover{
@@ -189,7 +180,6 @@ padding:20px;
 .product h3{
 margin-bottom:10px;
 font-size:1.1rem;
-min-height:60px;
 }
 
 .product p{
@@ -218,14 +208,7 @@ padding:12px 18px;
 border-radius:50px;
 cursor:pointer;
 font-weight:700;
-transition:.3s;
 }
-
-.buy-btn:hover{
-background:var(--dark);
-}
-
-/* MODAL */
 
 .modal{
 position:fixed;
@@ -240,12 +223,6 @@ padding:20px;
 
 .modal.active{
 display:flex;
-animation:fade .4s ease;
-}
-
-@keyframes fade{
-from{opacity:0}
-to{opacity:1}
 }
 
 .modal-content{
@@ -256,13 +233,13 @@ border-radius:30px;
 overflow:hidden;
 display:grid;
 grid-template-columns:1fr 1fr;
-animation:up .5s ease;
 position:relative;
+animation:up .5s ease;
 }
 
 @keyframes up{
 from{
-transform:translateY(60px);
+transform:translateY(50px);
 opacity:0;
 }
 to{
@@ -305,10 +282,7 @@ justify-content:center;
 align-items:center;
 font-size:1.4rem;
 cursor:pointer;
-z-index:10;
 }
-
-/* CART */
 
 .cart{
 position:fixed;
@@ -385,8 +359,6 @@ cursor:pointer;
 font-size:1rem;
 }
 
-/* FOOTER */
-
 footer{
 background:var(--dark);
 color:white;
@@ -411,8 +383,6 @@ font-size:2rem;
 text-decoration:none;
 z-index:1000;
 }
-
-/* MOBILE */
 
 @media(max-width:900px){
 
@@ -445,8 +415,6 @@ grid-template-columns:1fr;
 
 <body>
 
-<!-- CART -->
-
 <div class="cart" id="cart">
 
 <h2>🛍 سلة المشتريات</h2>
@@ -464,8 +432,6 @@ grid-template-columns:1fr;
 </button>
 
 </div>
-
-<!-- NAV -->
 
 <nav>
 
@@ -486,8 +452,6 @@ Rosavelleee
 
 </nav>
 
-<!-- HERO -->
-
 <section class="hero">
 
 <div>
@@ -498,7 +462,7 @@ Rosavelleee
 </h1>
 
 <p>
-منتجات مستوحاة من أشهر منتجات العناية بالبشرة والشعر في مصر مع تجربة شراء احترافية.
+منتجات أصلية للعناية بالبشرة والشعر بأسعار مصرية وتجربة تسوق احترافية.
 </p>
 
 <a href="#products" class="hero-btn">
@@ -514,8 +478,6 @@ Rosavelleee
 </div>
 
 </section>
-
-<!-- PRODUCTS -->
 
 <section class="section" id="products">
 
@@ -544,8 +506,6 @@ onkeyup="searchProducts()">
 <div class="products" id="productsContainer"></div>
 
 </section>
-
-<!-- MODAL -->
 
 <div class="modal" id="modal">
 
@@ -579,8 +539,6 @@ id="modalBtn">
 
 </div>
 
-<!-- FOOTER -->
-
 <footer>
 
 <h2>
@@ -600,8 +558,6 @@ href="https://wa.me/2001044829997">
 
 <script>
 
-/* PRODUCTS */
-
 const products = [
 
 {
@@ -617,8 +573,6 @@ description:`
 ✨ لا يترك أي طبقة دهنية.
 ✨ مثالي قبل المكياج.
 ✨ يمنح البشرة مظهر ناعم ومات طوال اليوم.
-
-💖 من أكتر المنتجات المطلوبة للبشرة في الصيف.
 `
 },
 
@@ -626,7 +580,7 @@ description:`
 id:2,
 name:"Rosavelleee Vitamin C Face Wash",
 price:85,
-image:"https://img-1.kwcdn.com/product/fancy/dacabdbc-6c52-49e9-a2ec-9d4f208f609d.jpg?imageView2/2/w/500/q/80/format/avif=80&w=1200&auto=format&fit=crop",
+image:"https://images.unsplash.com/photo-1556228578-dd6c79deb0b6?q=80&w=1200&auto=format&fit=crop",
 description:`
 🍊 غسول غني بفيتامين C لإشراقة طبيعية.
 
@@ -634,8 +588,6 @@ description:`
 ✨ يقلل البهتان والإرهاق.
 ✨ يساعد على توحيد لون البشرة.
 ✨ يترك البشرة منتعشة وناعمة.
-
-🌸 مناسب للاستخدام اليومي.
 `
 },
 
@@ -651,8 +603,6 @@ description:`
 ✨ يمنح الشعر نعومة ولمعان.
 ✨ يحمي من التقصف والجفاف.
 ✨ مناسب للشعر المصبوغ والتالف.
-
-🔥 هيخلي شعرك Soft بشكل يخطف العين.
 `
 },
 
@@ -668,48 +618,10 @@ description:`
 ✨ ملمس حريري للبشرة.
 ✨ رائحة فاخرة وثابتة.
 ✨ سريع الامتصاص وغير دهني.
-
-💖 مناسب جداً بعد الشاور.
-`
-},
-
-{
-id:5,
-name:"Rosavelleee Hyaluronic Face Wash",
-price:85,
-image:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1200&auto=format&fit=crop",
-description:`
-💧 غسول الهيالورونيك لترطيب ونضارة البشرة.
-
-✨ يحافظ على ترطيب الوجه.
-✨ ينظف البشرة بلطف.
-✨ مناسب للبشرة الحساسة.
-✨ يمنح Glow طبيعي للبشرة.
-
-🌸 اختيار ممتاز للبشرة الجافة.
-`
-},
-
-{
-id:6,
-name:"Rosavelleee Lip Balm Strawberry",
-price:60,
-image:"https://images.unsplash.com/photo-1580870069867-74c57ee1bb07?q=80&w=1200&auto=format&fit=crop",
-description:`
-💄 مرطب شفاه بالفراولة.
-
-✨ يمنع تشقق الشفاه.
-✨ يمنح ترطيب ولمعة طبيعية.
-✨ رائحة فراولة جميلة جداً.
-✨ مناسب طوال اليوم.
-
-🍓 قطعة صغيرة لكن تأثيرها جامد.
 `
 }
 
 ];
-
-/* RENDER */
 
 function renderProducts(items = products){
 
@@ -733,7 +645,7 @@ onclick="openModal(${product.id})"
 
 <h3>${product.name}</h3>
 
-<p>${product.description.slice(0,90)}...</p>
+<p>${product.description.slice(0,80)}...</p>
 
 <div class="price">
 
@@ -756,8 +668,6 @@ onclick="event.stopPropagation();addToCart(${product.id})">
 });
 
 }
-
-/* MODAL */
 
 function openModal(id){
 
@@ -800,8 +710,6 @@ document
 
 }
 
-/* SEARCH */
-
 function searchProducts(){
 
 const value =
@@ -822,8 +730,6 @@ product.name
 renderProducts(filtered);
 
 }
-
-/* CART */
 
 let cart =
 JSON.parse(localStorage.getItem("cart"))
@@ -847,7 +753,8 @@ cart.find(item=>item.id===id);
 
 if(existing){
 
-existing.quantity += 1;
+existing.quantity =
+Number(existing.quantity) + 1;
 
 }else{
 
@@ -870,7 +777,8 @@ alert(
 
 function increaseQty(index){
 
-cart[index].quantity++;
+cart[index].quantity =
+Number(cart[index].quantity) + 1;
 
 saveCart();
 
@@ -879,6 +787,9 @@ renderCart();
 }
 
 function decreaseQty(index){
+
+cart[index].quantity =
+Number(cart[index].quantity);
 
 if(cart[index].quantity > 1){
 
@@ -971,8 +882,6 @@ count.innerHTML = totalCount;
 
 }
 
-/* CHECKOUT */
-
 function checkout(){
 
 if(cart.length === 0){
@@ -1021,8 +930,6 @@ window.open(
 );
 
 }
-
-/* INIT */
 
 renderProducts();
 

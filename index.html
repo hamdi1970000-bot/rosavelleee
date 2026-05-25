@@ -29,7 +29,6 @@ color:#222;
 :root{
 --main:#ff5f8f;
 --dark:#24131a;
---light:#fff0f5;
 --gradient:linear-gradient(135deg,#ff5f8f,#ff9ab6);
 }
 
@@ -449,60 +448,12 @@ cursor:pointer;
 font-size:1rem;
 }
 
-/* SOCIAL */
-
-.socials{
-margin-top:35px;
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.social{
-display:flex;
-align-items:center;
-gap:12px;
-text-decoration:none;
-padding:14px 24px;
-border-radius:70px;
-background:white;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-transition:.35s;
-font-weight:700;
-color:#222;
-}
-
-.social:hover{
-transform:translateY(-8px) scale(1.04);
-}
-
-.social img{
-width:28px;
-height:28px;
-object-fit:contain;
-}
-
-.instagram:hover{
-background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);
-color:white;
-}
-
-.tiktok:hover{
-background:#000;
-color:white;
-}
-
-.facebook:hover{
-background:#1877f2;
-color:white;
-}
 /* WHATSAPP */
 
 .whatsapp{
 position:fixed;
 bottom:25px;
-left:25px;
+left:20px;
 width:68px;
 height:68px;
 border-radius:50%;
@@ -514,6 +465,70 @@ color:white;
 font-size:2rem;
 text-decoration:none;
 z-index:9999;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+/* FLOATING SOCIALS */
+
+.floating-socials{
+position:fixed;
+left:20px;
+bottom:110px;
+display:flex;
+flex-direction:column;
+gap:15px;
+z-index:9999;
+}
+
+.float-social{
+width:58px;
+height:58px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+background:white;
+box-shadow:0 10px 25px rgba(0,0,0,.18);
+transition:.35s;
+}
+
+.float-social:hover{
+transform:translateY(-6px) scale(1.08);
+}
+
+.float-social img{
+width:28px;
+height:28px;
+object-fit:contain;
+}
+
+.facebook:hover{
+background:#1877f2;
+}
+
+.tiktok:hover{
+background:#000;
+}
+
+.instagram:hover{
+background:linear-gradient(
+45deg,
+#feda75,
+#fa7e1e,
+#d62976,
+#962fbf,
+#4f5bd5
+);
+}
+
+/* FOOTER */
+
+footer{
+background:#24131a;
+color:white;
+text-align:center;
+padding:60px 20px;
+margin-top:80px;
 }
 
 /* MOBILE */
@@ -556,10 +571,10 @@ left:-100%;
 
 <div class="top-track">
 
-<span> شحن مجاني لجميع الطلبات التي تزيد عن 499 جنية🚚</span>
-<span> منتجات أصلية بأسعار مصرية</span>
-<span> Rosavelleee Beauty Store💖</span>
-<span>  حصرية لفترة محدودة🔥</span>
+<span>🚚 شحن مجاني لجميع الطلبات التي تزيد عن ٥٥٠ جنية</span>
+<span>✨ منتجات أصلية بأسعار مصرية</span>
+<span>💖 Rosavelleee Beauty Store</span>
+<span>🔥 خصومات حصرية لفترة محدودة</span>
 
 </div>
 
@@ -723,6 +738,39 @@ id="modalBtn">
 
 </div>
 
+<!-- FLOATING SOCIALS -->
+
+<div class="floating-socials">
+
+<a 
+href="https://www.facebook.com/share/18tdHbf7Dx/?mibextid=wwXIfr"
+target="_blank"
+class="float-social facebook">
+
+<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+
+</a>
+
+<a 
+href="https://www.tiktok.com/@mo7amed_7amdi0?_r=1&_t=ZS-96en8NqHSDc"
+target="_blank"
+class="float-social tiktok">
+
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+
+</a>
+
+<a 
+href="https://www.instagram.com/mo7med_7amdi?igsh=MW92am01ZGx4cnF4Zg%3D%3D&utm_source=qr"
+target="_blank"
+class="float-social instagram">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+
+</a>
+
+</div>
+
 <!-- FOOTER -->
 
 <footer>
@@ -738,39 +786,6 @@ Rosavelleee Beauty
 جمالك الطبيعي يستحق الأفضل 💖
 
 </p>
-
-<div class="socials">
-
-<div class="socials">
-
-<a href="https://www.instagram.com/mo7med_7amdi?igsh=MW92am01ZGx4cnF4Zg%3D%3D&utm_source=qr" target="_blank" class="social instagram">
-
-<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-
-<span>Instagram</span>
-
-</a>
-
-<a href="https://www.tiktok.com/@mo7amed_7amdi0?_r=1&_t=ZS-96en8NqHSDc" target="_blank" class="social tiktok">
-
-<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
-
-<span>TikTok</span>
-
-</a>
-
-<a href="https://www.facebook.com/share/18tdHbf7Dx/?mibextid=wwXIfr" target="_blank" class="social facebook">
-
-<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
-
-<span>Facebook</span>
-
-</a>
-
-</div>
-</a>
-
-</div>
 
 </footer>
 
@@ -789,9 +804,9 @@ const products = [
 
 {
 id:1,
-name:"Rosavelleee Sunscreen SPF 50",
+name:"Rosavelleee Bobana Sunscreen SPF 50",
 price:350,
-image:"https://e-majestic.com/cdn/shop/files/sscream_2be42778-1829-4788-98e2-746e0ce903dd.png?v=1773051701&auto=format&fit=crop",
+image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=1200&auto=format&fit=crop",
 description:`☀️ واقي شمس قوي لحماية البشرة من الأشعة الضارة. ✨ SPF 50 ✨ مناسب للبشرة الدهنية والمختلطة ✨ لا يترك دهون`
 },
 
@@ -799,7 +814,7 @@ description:`☀️ واقي شمس قوي لحماية البشرة من الأ
 id:2,
 name:"Rosavelleee Vitamin C Face Wash",
 price:95,
-image:"https://www.dotandkey.com/cdn/shop/files/Artboard1-175ml_a9d72220-eec0-444b-b1b9-b71cee19dec6.jpg?v=1754919216&auto=format&fit=crop",
+image:"https://images.unsplash.com/photo-1556228578-dd6c79deb0b6?q=80&w=1200&auto=format&fit=crop",
 description:`🍊 غسول غني بفيتامين C. ✨ تنظيف عميق ✨ يمنح Glow رائع للبشرة ✨ مناسب يومي`
 },
 

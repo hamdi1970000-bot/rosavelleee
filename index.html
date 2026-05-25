@@ -409,6 +409,149 @@ text-decoration:none;
 z-index:99999;
 }
 
+/* AI */
+
+.mini-ai-container{
+position:fixed;
+right:20px;
+bottom:25px;
+z-index:999999;
+}
+
+.mini-ai-bot{
+width:82px;
+height:82px;
+border-radius:50%;
+background:linear-gradient(135deg,#ff5f8f,#ff9ab6);
+display:flex;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+box-shadow:0 15px 35px rgba(0,0,0,.2);
+animation:floatBot 3s ease-in-out infinite;
+overflow:hidden;
+}
+
+.mini-ai-bot img{
+width:48px;
+height:48px;
+}
+
+@keyframes floatBot{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+.mini-chat{
+position:absolute;
+bottom:100px;
+right:0;
+width:370px;
+height:560px;
+background:white;
+border-radius:30px;
+overflow:hidden;
+display:none;
+flex-direction:column;
+box-shadow:0 20px 70px rgba(0,0,0,.2);
+}
+
+.mini-header{
+background:linear-gradient(135deg,#ff5f8f,#ff9ab6);
+padding:18px;
+color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-weight:700;
+}
+
+.mini-header small{
+display:block;
+font-size:.75rem;
+margin-top:4px;
+}
+
+.mini-header span{
+cursor:pointer;
+}
+
+.mini-messages{
+flex:1;
+padding:18px;
+overflow:auto;
+display:flex;
+flex-direction:column;
+gap:14px;
+background:#fff7fb;
+}
+
+.mini-bot-msg,
+.mini-user-msg{
+padding:14px 18px;
+border-radius:20px;
+max-width:85%;
+line-height:1.9;
+font-size:.93rem;
+white-space:pre-wrap;
+}
+
+.mini-bot-msg{
+background:#ffe0ea;
+align-self:flex-start;
+}
+
+.mini-user-msg{
+background:#24131a;
+color:white;
+align-self:flex-end;
+}
+
+.typing{
+display:none;
+padding:0 18px 12px;
+font-size:.85rem;
+color:#888;
+}
+
+.mini-input{
+display:flex;
+gap:10px;
+padding:15px;
+border-top:1px solid #eee;
+background:white;
+}
+
+.mini-input input{
+flex:1;
+padding:15px;
+border:none;
+border-radius:50px;
+background:#f4f4f4;
+outline:none;
+font-family:'Cairo',sans-serif;
+}
+
+.mini-input button{
+width:54px;
+border:none;
+border-radius:50%;
+background:linear-gradient(135deg,#ff5f8f,#ff9ab6);
+color:white;
+cursor:pointer;
+}
+
 /* FOOTER */
 
 footer{
@@ -449,371 +592,18 @@ left:-100%;
 width:100%;
 }
 
+.mini-chat{
+width:92vw;
+right:-6px;
+height:72vh;
+}
+
 }
 
 </style>
 
 </head>
-<!-- MINI AI ROBOT -->
 
-<div class="mini-ai-container">
-
-<div class="mini-ai-bot" onclick="toggleMiniChat()">
-
-<img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png">
-
-</div>
-
-<div class="mini-chat" id="miniChat">
-
-<div class="mini-header">
-
-Rosavelleee AI ✨
-
-<span onclick="toggleMiniChat()">✖</span>
-
-</div>
-
-<div class="mini-messages" id="miniMessages">
-
-<div class="mini-bot-msg">
-
-أهلاً بيكي 💖  
-أنا مساعد الجمال الخاص بـ Rosavelleee ✨
-
-</div>
-
-</div>
-
-<div class="mini-input">
-
-<input
-type="text"
-id="miniInput"
-placeholder="اسأليني بسرعة..."
-onkeypress="miniKey(event)">
-
-<button onclick="sendMiniMessage()">
-
-➤
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<style>
-
-/* CONTAINER */
-
-.mini-ai-container{
-
-position:fixed;
-right:20px;
-bottom:25px;
-z-index:999999;
-
-}
-
-/* ROBOT */
-
-.mini-ai-bot{
-
-width:78px;
-height:78px;
-border-radius:50%;
-background:linear-gradient(135deg,#ff5f8f,#ff9ab6);
-display:flex;
-justify-content:center;
-align-items:center;
-cursor:pointer;
-box-shadow:0 15px 35px rgba(0,0,0,.2);
-
-animation:floatBot 3s ease-in-out infinite;
-
-transition:.3s;
-
-}
-
-.mini-ai-bot:hover{
-
-transform:scale(1.08);
-
-}
-
-.mini-ai-bot img{
-
-width:45px;
-height:45px;
-
-}
-
-@keyframes floatBot{
-
-0%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(-10px);
-}
-
-100%{
-transform:translateY(0);
-}
-
-}
-
-/* CHAT */
-
-.mini-chat{
-
-position:absolute;
-bottom:95px;
-right:0;
-width:320px;
-height:430px;
-background:white;
-border-radius:28px;
-overflow:hidden;
-display:none;
-flex-direction:column;
-box-shadow:0 25px 60px rgba(0,0,0,.18);
-
-}
-
-/* HEADER */
-
-.mini-header{
-
-background:linear-gradient(135deg,#ff5f8f,#ff9ab6);
-color:white;
-padding:18px;
-font-weight:700;
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-}
-
-.mini-header span{
-cursor:pointer;
-}
-
-/* MESSAGES */
-
-.mini-messages{
-
-flex:1;
-padding:18px;
-overflow:auto;
-display:flex;
-flex-direction:column;
-gap:12px;
-background:#fff7fb;
-
-}
-
-.mini-bot-msg,
-.mini-user-msg{
-
-padding:13px 16px;
-border-radius:18px;
-max-width:85%;
-line-height:1.8;
-font-size:.92rem;
-
-}
-
-.mini-bot-msg{
-
-background:#ffe0ea;
-align-self:flex-start;
-
-}
-
-.mini-user-msg{
-
-background:#24131a;
-color:white;
-align-self:flex-end;
-
-}
-
-/* INPUT */
-
-.mini-input{
-
-display:flex;
-gap:10px;
-padding:15px;
-background:white;
-border-top:1px solid #eee;
-
-}
-
-.mini-input input{
-
-flex:1;
-padding:14px;
-border:none;
-border-radius:50px;
-background:#f4f4f4;
-outline:none;
-
-}
-
-.mini-input button{
-
-width:50px;
-border:none;
-border-radius:50%;
-background:linear-gradient(135deg,#ff5f8f,#ff9ab6);
-color:white;
-font-size:1.1rem;
-cursor:pointer;
-
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.mini-chat{
-
-width:92vw;
-right:-5px;
-height:72vh;
-
-}
-
-.mini-ai-bot{
-
-width:68px;
-height:68px;
-
-}
-
-}
-
-</style>
-
-<script>
-
-function toggleMiniChat(){
-
-const chat =
-document.getElementById("miniChat");
-
-if(chat.style.display === "flex"){
-
-chat.style.display = "none";
-
-}else{
-
-chat.style.display = "flex";
-
-}
-
-}
-
-function miniKey(e){
-
-if(e.key === "Enter"){
-
-sendMiniMessage();
-
-}
-
-}
-
-function sendMiniMessage(){
-
-const input =
-document.getElementById("miniInput");
-
-const messages =
-document.getElementById("miniMessages");
-
-const text =
-input.value.trim();
-
-if(!text) return;
-
-messages.innerHTML += `
-
-<div class="mini-user-msg">
-
-${text}
-
-</div>
-
-`;
-
-input.value = "";
-
-setTimeout(()=>{
-
-let reply = "";
-
-const msg = text.toLowerCase();
-
-if(msg.includes("دهنية")){
-
-reply =
-"💖 أنصحك بـ Sunscreen SPF 50 لأنه خفيف جدًا ومناسب للبشرة الدهنية ✨";
-
-}
-
-else if(msg.includes("شعر")){
-
-reply =
-"✨ Hair Serum ممتاز لتقليل الهيشان ولمعان الشعر 💆‍♀️";
-
-}
-
-else if(msg.includes("شحن")){
-
-reply =
-"🚚 الشحن مجاني للطلبات فوق 550 جنيه.";
-
-}
-
-else if(msg.includes("سعر")){
-
-reply =
-"💖 الأسعار تبدأ من 60 جنيه فقط.";
-
-}
-
-else{
-
-reply =
-"✨ قوليلي نوع بشرتك وأنا أرشحلك الأفضل 💖";
-
-}
-
-messages.innerHTML += `
-
-<div class="mini-bot-msg">
-
-${reply}
-
-</div>
-
-`;
-
-messages.scrollTop =
-messages.scrollHeight;
-
-},700);
-
-}
-
-</script>
 <body>
 
 <div class="top-bar">
@@ -974,6 +764,75 @@ href="https://wa.me/2001044829997">
 
 </a>
 
+<!-- AI -->
+
+<div class="mini-ai-container">
+
+<div class="mini-ai-bot" onclick="toggleMiniChat()">
+
+<img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png">
+
+</div>
+
+<div class="mini-chat" id="miniChat">
+
+<div class="mini-header">
+
+<div>
+
+Rosavelleee AI ✨
+
+<small>
+صاحبتك الذكية للبشرة والجمال 😂💖
+</small>
+
+</div>
+
+<span onclick="toggleMiniChat()">
+✖
+</span>
+
+</div>
+
+<div class="mini-messages" id="miniMessages">
+
+<div class="mini-bot-msg">
+
+ياهلاا 😭💖
+
+أنا Rosavelleee AI  
+فاهم البشرة والشعر والجمال والحياة والدراما كمان 😂✨
+
+</div>
+
+</div>
+
+<div class="typing" id="typing">
+
+بيفكر كدا... ✨
+
+</div>
+
+<div class="mini-input">
+
+<input
+type="text"
+id="miniInput"
+placeholder="قولي أي حاجة..."
+onkeypress="miniKey(event)">
+
+<button onclick="sendMiniMessage()">
+
+➤
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
 <footer>
 
 <h2>Rosavelleee Beauty</h2>
@@ -987,6 +846,8 @@ href="https://wa.me/2001044829997">
 </footer>
 
 <script>
+
+/* HERO */
 
 window.addEventListener("scroll",()=>{
 
@@ -1004,6 +865,8 @@ hero.style.backgroundSize = size + "%";
 
 });
 
+/* SOCIAL */
+
 function toggleSocials(){
 
 document
@@ -1011,6 +874,8 @@ document
 .classList.toggle("active");
 
 }
+
+/* PRODUCTS */
 
 const products = [
 
@@ -1141,6 +1006,8 @@ onclick="addToCart(${product.id})">
 
 }
 
+/* SEARCH */
+
 function searchProducts(){
 
 const value =
@@ -1165,8 +1032,6 @@ renderProducts(filtered);
 /* CART */
 
 let cart = [];
-
-localStorage.removeItem("cart");
 
 function toggleCart(){
 
@@ -1197,20 +1062,9 @@ quantity:1
 
 }
 
-saveCart();
-
 renderCart();
 
 alert("🔥 دي شكلها هتولع بقا وهنشتري الـ BMW 🚘✨");
-
-}
-
-function saveCart(){
-
-localStorage.setItem(
-"cart",
-JSON.stringify(cart)
-);
 
 }
 
@@ -1270,6 +1124,8 @@ count.innerHTML = totalCount;
 
 }
 
+/* CHECKOUT */
+
 function checkout(){
 
 if(cart.length === 0){
@@ -1324,6 +1180,157 @@ window.open(
 `https://wa.me/2001044829997?text=${encoded}`,
 "_blank"
 );
+
+}
+
+/* AI */
+
+const GEMINI_API_KEY =
+"AIzaSyCSrS2ZY7_PYdd0W-o68ufVGwhBqSDzTZ4";
+
+function toggleMiniChat(){
+
+const chat =
+document.getElementById("miniChat");
+
+chat.style.display =
+chat.style.display === "flex"
+? "none"
+: "flex";
+
+}
+
+function miniKey(e){
+
+if(e.key === "Enter"){
+
+sendMiniMessage();
+
+}
+
+}
+
+async function sendMiniMessage(){
+
+const input =
+document.getElementById("miniInput");
+
+const messages =
+document.getElementById("miniMessages");
+
+const typing =
+document.getElementById("typing");
+
+const text =
+input.value.trim();
+
+if(!text) return;
+
+messages.innerHTML += `
+
+<div class="mini-user-msg">
+
+${text}
+
+</div>
+
+`;
+
+messages.scrollTop =
+messages.scrollHeight;
+
+input.value = "";
+
+typing.style.display = "block";
+
+const prompt = `
+
+أنت AI لمتجر تجميل اسمه Rosavelleee.
+
+اتكلم بالمصري الطبيعي جدًا.
+
+خليك:
+- ذكي
+- يهزر
+- فاهم البشرة والشعر
+- trendy
+- friendly
+- ردودك قصيرة نسبيًا
+
+رسالة العميل:
+${text}
+
+`;
+
+try{
+
+const response =
+await fetch(
+
+`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
+
+{
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+contents:[{
+
+parts:[{
+text:prompt
+}]
+
+}]
+
+})
+
+}
+
+);
+
+const data =
+await response.json();
+
+typing.style.display = "none";
+
+const reply =
+data.candidates?.[0]
+?.content?.parts?.[0]?.text
+
+|| "حاسس إني تهت شوية 😭";
+
+messages.innerHTML += `
+
+<div class="mini-bot-msg">
+
+${reply}
+
+</div>
+
+`;
+
+messages.scrollTop =
+messages.scrollHeight;
+
+}catch(error){
+
+typing.style.display = "none";
+
+messages.innerHTML += `
+
+<div class="mini-bot-msg">
+
+الذكاء الاصطناعي شكله خرج ياخد بريك 😭💔
+
+</div>
+
+`;
+
+}
 
 }
 

@@ -21,15 +21,9 @@ scroll-behavior:smooth;
 
 body{
 font-family:'Cairo',sans-serif;
-background:#fff8fb;
+background:#fff7fb;
 overflow-x:hidden;
 color:#222;
-}
-
-:root{
---main:#ff5f8f;
---dark:#24131a;
---gradient:linear-gradient(135deg,#ff5f8f,#ff9ab6);
 }
 
 /* TOP BAR */
@@ -39,8 +33,8 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-height:40px;
-background:#24131a;
+height:42px;
+background:#2b101a;
 color:white;
 overflow:hidden;
 z-index:99999;
@@ -50,7 +44,7 @@ align-items:center;
 
 .top-track{
 display:flex;
-gap:80px;
+gap:90px;
 white-space:nowrap;
 animation:moveText 18s linear infinite;
 font-weight:700;
@@ -73,7 +67,7 @@ transform:translateX(-100%);
 
 nav{
 position:fixed;
-top:40px;
+top:42px;
 left:0;
 right:0;
 background:white;
@@ -88,9 +82,7 @@ z-index:999;
 .logo{
 font-size:2rem;
 font-weight:900;
-background:var(--gradient);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+color:#ff5f8f;
 }
 
 nav ul{
@@ -101,37 +93,29 @@ list-style:none;
 
 nav a{
 text-decoration:none;
+color:#333;
 font-weight:700;
-color:#444;
-transition:.3s;
-}
-
-nav a:hover{
-color:var(--main);
 }
 
 .cart-btn{
-background:var(--gradient);
+background:linear-gradient(135deg,#ff5f8f,#ff9ab6);
 color:white;
 border:none;
-padding:13px 24px;
+padding:14px 24px;
 border-radius:50px;
 font-weight:700;
 cursor:pointer;
-box-shadow:0 10px 25px rgba(255,95,143,.3);
 }
 
 /* HERO */
 
 .hero{
-
 height:100vh;
 position:relative;
-overflow:hidden;
 display:flex;
 align-items:center;
 justify-content:center;
-padding:140px 8% 80px;
+padding:120px 8% 70px;
 
 background-image:
 linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
@@ -142,54 +126,39 @@ background-position:center;
 background-repeat:no-repeat;
 
 transition:background-size .2s linear;
-
 }
 
 .hero-content{
-
 text-align:center;
 color:white;
 max-width:850px;
-z-index:2;
-
 }
 
 .hero h1{
-
 font-size:5rem;
 line-height:1.2;
 margin-bottom:20px;
 font-weight:900;
-
 }
 
 .hero h1 span{
-
-color:#ff7ca8;
-
+color:#ff80ac;
 }
 
 .hero p{
-
 font-size:1.2rem;
 line-height:2;
 margin-bottom:35px;
-color:#f3f3f3;
-
 }
 
 .hero-btn{
-
 display:inline-block;
-padding:18px 45px;
+padding:18px 42px;
 background:linear-gradient(135deg,#ff5f8f,#ff9ab6);
 color:white;
 text-decoration:none;
 border-radius:60px;
 font-weight:700;
-font-size:1.1rem;
-box-shadow:0 10px 30px rgba(255,95,143,.4);
-
 }
 
 /* SECTION */
@@ -200,7 +169,7 @@ padding:100px 8%;
 
 .section-title{
 text-align:center;
-margin-bottom:50px;
+margin-bottom:45px;
 }
 
 .section-title h2{
@@ -211,7 +180,7 @@ margin-bottom:15px;
 .search-box{
 display:flex;
 justify-content:center;
-margin-bottom:45px;
+margin-bottom:40px;
 }
 
 .search-box input{
@@ -220,7 +189,7 @@ padding:17px 22px;
 border:none;
 border-radius:50px;
 background:white;
-box-shadow:0 10px 25px rgba(0,0,0,.07);
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 outline:none;
 font-size:1rem;
 }
@@ -239,33 +208,16 @@ border-radius:30px;
 overflow:hidden;
 box-shadow:0 15px 35px rgba(0,0,0,.08);
 transition:.4s;
-cursor:pointer;
-position:relative;
 }
 
 .product:hover{
-transform:translateY(-12px);
-}
-
-.product::before{
-content:"HOT 🔥";
-position:absolute;
-top:18px;
-left:18px;
-background:var(--gradient);
-color:white;
-padding:8px 15px;
-border-radius:50px;
-font-size:.8rem;
-font-weight:700;
-z-index:5;
+transform:translateY(-10px);
 }
 
 .product img{
 width:100%;
 height:320px;
 object-fit:cover;
-display:block;
 }
 
 .product-body{
@@ -292,11 +244,11 @@ align-items:center;
 
 .price strong{
 font-size:1.5rem;
-color:var(--main);
+color:#ff5f8f;
 }
 
 .buy-btn{
-background:var(--gradient);
+background:linear-gradient(135deg,#ff5f8f,#ff9ab6);
 color:white;
 border:none;
 padding:12px 20px;
@@ -310,7 +262,7 @@ font-weight:700;
 .cart{
 position:fixed;
 top:0;
-left:-430px;
+left:-420px;
 width:400px;
 height:100vh;
 background:white;
@@ -325,16 +277,12 @@ z-index:9999;
 left:0;
 }
 
-.cart h2{
-margin-bottom:20px;
-}
-
 .cart-item{
 display:flex;
 gap:15px;
 margin-bottom:20px;
-padding-bottom:15px;
 border-bottom:1px solid #eee;
+padding-bottom:15px;
 }
 
 .cart-item img{
@@ -344,28 +292,11 @@ object-fit:cover;
 border-radius:18px;
 }
 
-.qty{
-display:flex;
-align-items:center;
-gap:10px;
-margin-top:10px;
-}
-
-.qty button{
-width:30px;
-height:30px;
-border:none;
-border-radius:50%;
-background:var(--gradient);
-color:white;
-cursor:pointer;
-}
-
 .total{
 margin-top:20px;
-font-size:1.5rem;
+font-size:1.4rem;
 font-weight:900;
-color:var(--main);
+color:#ff5f8f;
 }
 
 .checkout{
@@ -380,13 +311,13 @@ font-weight:700;
 cursor:pointer;
 }
 
-/* SOCIALS */
+/* FLOATING SOCIALS */
 
 .social-wrapper{
 position:fixed;
-left:18px;
+left:15px;
 bottom:110px;
-z-index:9999;
+z-index:99999;
 display:flex;
 flex-direction:column;
 align-items:flex-start;
@@ -401,10 +332,10 @@ background:linear-gradient(135deg,#ff5f8f,#ff9ab6);
 display:flex;
 justify-content:center;
 align-items:center;
-cursor:pointer;
-box-shadow:0 10px 25px rgba(0,0,0,.2);
 font-size:1.5rem;
 color:white;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
 }
 
 .floating-socials{
@@ -413,7 +344,7 @@ flex-direction:column;
 gap:12px;
 opacity:0;
 pointer-events:none;
-transform:translateX(-20px);
+transform:translateX(-30px);
 transition:.35s;
 }
 
@@ -424,14 +355,14 @@ transform:translateX(0);
 }
 
 .float-social{
-width:56px;
-height:56px;
+width:58px;
+height:58px;
 border-radius:50%;
 background:white;
 display:flex;
 justify-content:center;
 align-items:center;
-box-shadow:0 10px 25px rgba(0,0,0,.18);
+box-shadow:0 10px 25px rgba(0,0,0,.2);
 transition:.3s;
 }
 
@@ -442,15 +373,14 @@ transform:scale(1.08);
 .float-social img{
 width:28px;
 height:28px;
-object-fit:contain;
 }
 
 /* WHATSAPP */
 
 .whatsapp{
 position:fixed;
+left:18px;
 bottom:25px;
-left:20px;
 width:68px;
 height:68px;
 border-radius:50%;
@@ -458,11 +388,10 @@ background:#25D366;
 display:flex;
 justify-content:center;
 align-items:center;
-color:white;
 font-size:2rem;
+color:white;
 text-decoration:none;
-z-index:9999;
-box-shadow:0 10px 25px rgba(0,0,0,.2);
+z-index:99999;
 }
 
 /* FOOTER */
@@ -485,7 +414,7 @@ padding:120px 20px 70px;
 }
 
 .hero h1{
-font-size:2.8rem;
+font-size:2.7rem;
 }
 
 .hero p{
@@ -513,39 +442,18 @@ width:100%;
 
 <body>
 
+<!-- TOP BAR -->
+
 <div class="top-bar">
 
 <div class="top-track">
 
 <span>🚚 شحن مجاني لجميع الطلبات التي تزيد عن ٥٥٠ جنية</span>
-<span>✨ منتجات أصلية بأسعار مصرية</span>
+<span>✨ منتجات أصلية 100%</span>
 <span>💖 Rosavelleee Beauty Store</span>
+<span>🔥 خصومات لفترة محدودة</span>
 
 </div>
-
-</div>
-
-<!-- CART -->
-
-<div class="cart" id="cart">
-
-<h2>🛍 سلة المشتريات</h2>
-
-<div id="cartItems"></div>
-
-<div class="total">
-
-الإجمالي:
-<span id="total">0</span>
-ج
-
-</div>
-
-<button class="checkout" onclick="checkout()">
-
-إتمام الطلب عبر واتساب
-
-</button>
 
 </div>
 
@@ -594,7 +502,7 @@ Rosavelleee
 <p>
 
 أفضل منتجات العناية بالبشرة والشعر
-بجودة عالية وتصميم فاخر وتجربة تسوق احترافية ✨
+بجودة عالية وتجربة تسوق احترافية ✨
 
 </p>
 
@@ -636,6 +544,30 @@ onkeyup="searchProducts()">
 
 </section>
 
+<!-- CART -->
+
+<div class="cart" id="cart">
+
+<h2>🛍 سلة المشتريات</h2>
+
+<div id="cartItems"></div>
+
+<div class="total">
+
+الإجمالي:
+<span id="total">0</span>
+ج
+
+</div>
+
+<button class="checkout" onclick="checkout()">
+
+إتمام الطلب عبر واتساب
+
+</button>
+
+</div>
+
 <!-- FLOATING SOCIALS -->
 
 <div class="social-wrapper" id="socialWrapper">
@@ -648,28 +580,28 @@ onkeyup="searchProducts()">
 
 <div class="floating-socials">
 
-<a 
-href="https://www.facebook.com/share/18tdHbf7Dx/?mibextid=wwXIfr"
+<a
+class="float-social"
 target="_blank"
-class="float-social">
+href="https://www.facebook.com/share/18tdHbf7Dx/?mibextid=wwXIfr">
 
 <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
 
 </a>
 
-<a 
-href="https://www.tiktok.com/@mo7amed_7amdi0?_r=1&_t=ZS-96en8NqHSDc"
+<a
+class="float-social"
 target="_blank"
-class="float-social">
+href="https://www.tiktok.com/@mo7amed_7amdi0?_r=1&_t=ZS-96en8NqHSDc">
 
 <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
 
 </a>
 
-<a 
-href="https://www.instagram.com/mo7med_7amdi?igsh=MW92am01ZGx4cnF4Zg%3D%3D&utm_source=qr"
+<a
+class="float-social"
 target="_blank"
-class="float-social">
+href="https://www.instagram.com/mo7med_7amdi?igsh=MW92am01ZGx4cnF4Zg%3D%3D&utm_source=qr">
 
 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
 
@@ -678,6 +610,18 @@ class="float-social">
 </div>
 
 </div>
+
+<!-- WHATSAPP -->
+
+<a class="whatsapp"
+target="_blank"
+href="https://wa.me/2001044829997">
+
+💬
+
+</a>
+
+<!-- FOOTER -->
 
 <footer>
 
@@ -695,14 +639,9 @@ Rosavelleee Beauty
 
 </footer>
 
-<a class="whatsapp"
-href="https://wa.me/2001044829997">
-
-💬
-
-</a>
-
 <script>
+
+/* HERO SCROLL EFFECT */
 
 window.addEventListener("scroll",()=>{
 
@@ -722,6 +661,8 @@ hero.style.backgroundSize = size + "%";
 
 });
 
+/* SOCIALS */
+
 function toggleSocials(){
 
 document
@@ -730,21 +671,24 @@ document
 
 }
 
+/* PRODUCTS */
+
 const products = [
+
 {
 id:1,
 name:"Rosavelleee Sunscreen SPF 50",
 price:350,
-image:"https://e-majestic.com/cdn/shop/files/sscream_2be42778-1829-4788-98e2-746e0ce903dd.png?v=1773051701&width=600&auto=format&fit=crop",
-description:☀️ واقي شمس قوي لحماية البشرة من الأشعة الضارة. ✨ SPF 50 ✨ مناسب للبشرة الدهنية والمختلطة ✨ لا يترك دهون
+image:"https://e-majestic.com/cdn/shop/files/sscream_2be42778-1829-4788-98e2-746e0ce903dd.png?v=1773051701&width=600",
+description:"☀️ واقي شمس قوي لحماية البشرة من الأشعة الضارة."
 },
 
 {
 id:2,
 name:"Rosavelleee Vitamin C Face Wash",
 price:95,
-image:"https://www.dotandkey.com/cdn/shop/files/Artboard1-175ml_a9d72220-eec0-444b-b1b9-b71cee19dec6.jpg?v=1754919216&auto=format&fit=crop",
-description:🍊 غسول غني بفيتامين C. ✨ تنظيف عميق ✨ يمنح Glow رائع للبشرة ✨ مناسب يومي
+image:"https://www.dotandkey.com/cdn/shop/files/Artboard1-175ml_a9d72220-eec0-444b-b1b9-b71cee19dec6.jpg?v=1754919216",
+description:"🍊 غسول غني بفيتامين C."
 },
 
 {
@@ -752,66 +696,19 @@ id:3,
 name:"Rosavelleee Argan Hair Cream",
 price:120,
 image:"https://images.unsplash.com/photo-1526947425960-945c6e72858f?q=80&w=1200&auto=format&fit=crop",
-description:💆‍♀️ كريم بزيت الأرجان لتغذية الشعر. ✨ يقلل الهيشان ✨ يمنح نعومة ولمعان ✨ حماية من التقصف
+description:"💆‍♀️ كريم بزيت الأرجان لتغذية الشعر."
 },
 
 {
 id:4,
-name:"Rosavelleee Coconut Lotion",
-price:160,
-image:"https://img.kwcdn.com/product/fancy/4e1d2b6d-704c-4cb0-9045-600f7d514d40.jpg?imageView2/2/w/800/q/70/format/avif&auto=format&fit=crop",
-description:🥥 لوشن جوز الهند للجسم. ✨ ترطيب عميق ✨ رائحة فاخرة ✨ ملمس ناعم للبشرة
-},
-
-{
-id:5,
-name:"Rosavelleee Hyaluronic Face Wash",
-price:110,
-image:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1200&auto=format&fit=crop",
-description:💧 غسول هيالورونيك للبشرة. ✨ ترطيب قوي ✨ تنظيف لطيف ✨ مناسب للبشرة الحساسة
-},
-
-{
-id:6,
-name:"Rosavelleee Lip Balm Strawberry",
-price:60,
-image:"https://images.unsplash.com/photo-1580870069867-74c57ee1bb07?q=80&w=1200&auto=format&fit=crop",
-description:💄 مرطب شفاه بالفراولة. ✨ ترطيب قوي ✨ ملمس ناعم ✨ رائحة جميلة
-},
-
-{
-id:7,
-name:"Rosavelleee Body Splash",
-price:180,
-image:"https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1200&auto=format&fit=crop",
-description:🌸 بودي سبلاش منعش وثابت. ✨ رائحة جذابة ✨ يدوم ساعات ✨ مناسب يومي
-},
-
-{
-id:8,
-name:"Rosavelleee Hair Serum",
-price:145,
-image:"https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1200&auto=format&fit=crop",
-description:✨ سيرم شعر احترافي. ✨ لمعان قوي ✨ حماية من الحرارة ✨ تقليل الهيشان
-},
-
-{
-id:9,
-name:"Rosavelleee Makeup Remover",
-price:99,
-image:"https://images.unsplash.com/photo-1571781926291-c477ebfd024b?q=80&w=1200&auto=format&fit=crop",
-description:🧴 مزيل مكياج لطيف. ✨ إزالة سريعة ✨ لا يسبب جفاف ✨ مناسب للبشرة الحساسة
-},
-
-{
-id:10,
 name:"Rosavelleee Pink Mask",
 price:130,
 image:"https://images.unsplash.com/photo-1522338242992-e1a54906a8da?q=80&w=1200&auto=format&fit=crop",
-description:🎀 ماسك وردي لنضارة البشرة. ✨ تفتيح ✨ تنظيف المسام ✨ تنعيم البشرة
+description:"🎀 ماسك وردي لنضارة البشرة."
 }
+
 ];
-  
+
 function renderProducts(items = products){
 
 const container =
@@ -877,6 +774,8 @@ product.name
 renderProducts(filtered);
 
 }
+
+/* CART */
 
 let cart =
 JSON.parse(localStorage.getItem("cart"))
@@ -981,6 +880,14 @@ count.innerHTML = totalCount;
 }
 
 function checkout(){
+
+if(cart.length === 0){
+
+alert("السلة فارغة");
+
+return;
+
+}
 
 let message =
 "🌸 طلب جديد من Rosavelleee %0A%0A";

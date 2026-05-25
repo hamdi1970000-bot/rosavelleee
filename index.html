@@ -63,7 +63,7 @@ transform:translateX(-100%);
 
 }
 
-/* NAVBAR */
+/* NAV */
 
 nav{
 position:fixed;
@@ -292,10 +292,6 @@ z-index:9999;
 left:0;
 }
 
-.cart h2{
-margin-bottom:20px;
-}
-
 .cart-item{
 display:flex;
 gap:15px;
@@ -461,8 +457,6 @@ width:100%;
 
 <body>
 
-<!-- TOP BAR -->
-
 <div class="top-bar">
 
 <div class="top-track">
@@ -475,8 +469,6 @@ width:100%;
 </div>
 
 </div>
-
-<!-- NAV -->
 
 <nav>
 
@@ -498,8 +490,6 @@ Rosavelleee
 </button>
 
 </nav>
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -531,8 +521,6 @@ Rosavelleee
 
 </section>
 
-<!-- PRODUCTS -->
-
 <section class="section" id="products">
 
 <div class="section-title">
@@ -559,8 +547,6 @@ onkeyup="searchProducts()">
 
 </section>
 
-<!-- CART -->
-
 <div class="cart" id="cart">
 
 <h2>🛍 سلة المشتريات</h2>
@@ -582,8 +568,6 @@ onkeyup="searchProducts()">
 </button>
 
 </div>
-
-<!-- SOCIALS -->
 
 <div class="social-wrapper" id="socialWrapper">
 
@@ -626,8 +610,6 @@ href="https://www.instagram.com/mo7med_7amdi?igsh=MW92am01ZGx4cnF4Zg%3D%3D&utm_s
 
 </div>
 
-<!-- WHATSAPP -->
-
 <a class="whatsapp"
 target="_blank"
 href="https://wa.me/2001044829997">
@@ -635,8 +617,6 @@ href="https://wa.me/2001044829997">
 💬
 
 </a>
-
-<!-- FOOTER -->
 
 <footer>
 
@@ -656,8 +636,6 @@ Rosavelleee Beauty
 
 <script>
 
-/* HERO EFFECT */
-
 window.addEventListener("scroll",()=>{
 
 const hero = document.querySelector(".hero");
@@ -674,8 +652,6 @@ hero.style.backgroundSize = size + "%";
 
 });
 
-/* SOCIAL */
-
 function toggleSocials(){
 
 document
@@ -683,8 +659,6 @@ document
 .classList.toggle("active");
 
 }
-
-/* PRODUCTS */
 
 const products = [
 
@@ -835,8 +809,6 @@ product.name
 renderProducts(filtered);
 
 }
-
-/* CART */
 
 let cart =
 JSON.parse(localStorage.getItem("cart"))

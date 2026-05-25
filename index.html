@@ -32,9 +32,48 @@ color:#222;
 --light:#fff1f4;
 }
 
-nav{
+/* TOP BAR */
+
+.top-bar{
 position:fixed;
 top:0;
+left:0;
+width:100%;
+height:40px;
+background:#2d1f21;
+color:white;
+overflow:hidden;
+z-index:99999;
+display:flex;
+align-items:center;
+}
+
+.top-track{
+display:flex;
+gap:80px;
+white-space:nowrap;
+animation:moveText 18s linear infinite;
+font-weight:700;
+font-size:.95rem;
+}
+
+@keyframes moveText{
+
+0%{
+transform:translateX(100%);
+}
+
+100%{
+transform:translateX(-100%);
+}
+
+}
+
+/* NAV */
+
+nav{
+position:fixed;
+top:40px;
 left:0;
 right:0;
 background:white;
@@ -74,12 +113,14 @@ font-weight:700;
 cursor:pointer;
 }
 
+/* HERO */
+
 .hero{
 min-height:100vh;
 display:grid;
 grid-template-columns:1fr 1fr;
 align-items:center;
-padding:120px 8%;
+padding:160px 8% 120px;
 gap:50px;
 background:linear-gradient(135deg,#fff7f8,#ffe3e8);
 }
@@ -119,6 +160,8 @@ border-radius:30px;
 box-shadow:0 20px 60px rgba(0,0,0,.15);
 }
 
+/* SECTION */
+
 .section{
 padding:90px 8%;
 }
@@ -147,6 +190,8 @@ border-radius:50px;
 box-shadow:0 5px 20px rgba(0,0,0,.08);
 outline:none;
 }
+
+/* PRODUCTS */
 
 .products{
 display:grid;
@@ -209,6 +254,8 @@ border-radius:50px;
 cursor:pointer;
 font-weight:700;
 }
+
+/* MODAL */
 
 .modal{
 position:fixed;
@@ -283,6 +330,8 @@ align-items:center;
 font-size:1.4rem;
 cursor:pointer;
 }
+
+/* CART */
 
 .cart{
 position:fixed;
@@ -359,6 +408,34 @@ cursor:pointer;
 font-size:1rem;
 }
 
+/* SOCIAL */
+
+.socials{
+margin-top:25px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.socials a{
+text-decoration:none;
+background:white;
+color:#2d1f21;
+padding:12px 20px;
+border-radius:50px;
+font-weight:700;
+transition:.3s;
+}
+
+.socials a:hover{
+transform:translateY(-5px);
+background:#d88995;
+color:white;
+}
+
+/* FOOTER */
+
 footer{
 background:var(--dark);
 color:white;
@@ -383,6 +460,8 @@ font-size:2rem;
 text-decoration:none;
 z-index:1000;
 }
+
+/* MOBILE */
 
 @media(max-width:900px){
 
@@ -415,6 +494,34 @@ grid-template-columns:1fr;
 
 <body>
 
+<!-- TOP BAR -->
+
+<div class="top-bar">
+
+<div class="top-track">
+
+<span>
+🚚 شحن مجاني لجميع الطلبات التي تزيد عن ٥٥٠ جنية
+</span>
+
+<span>
+🚚 شحن مجاني لجميع الطلبات التي تزيد عن ٥٥٠ جنية
+</span>
+
+<span>
+🚚 شحن مجاني لجميع الطلبات التي تزيد عن ٥٥٠ جنية
+</span>
+
+<span>
+🚚 شحن مجاني لجميع الطلبات التي تزيد عن ٥٥٠ جنية
+</span>
+
+</div>
+
+</div>
+
+<!-- CART -->
+
 <div class="cart" id="cart">
 
 <h2>🛍 سلة المشتريات</h2>
@@ -432,6 +539,8 @@ grid-template-columns:1fr;
 </button>
 
 </div>
+
+<!-- NAV -->
 
 <nav>
 
@@ -451,6 +560,8 @@ Rosavelleee
 </button>
 
 </nav>
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -479,6 +590,8 @@ Rosavelleee
 
 </section>
 
+<!-- PRODUCTS -->
+
 <section class="section" id="products">
 
 <div class="section-title">
@@ -506,6 +619,8 @@ onkeyup="searchProducts()">
 <div class="products" id="productsContainer"></div>
 
 </section>
+
+<!-- MODAL -->
 
 <div class="modal" id="modal">
 
@@ -539,6 +654,8 @@ id="modalBtn">
 
 </div>
 
+<!-- FOOTER -->
+
 <footer>
 
 <h2>
@@ -549,7 +666,25 @@ Rosavelleee Beauty
 جمالك الطبيعي يستحق الأفضل ✨
 </p>
 
+<div class="socials">
+
+<a href="https://instagram.com/" target="_blank">
+📸 Instagram
+</a>
+
+<a href="https://tiktok.com/" target="_blank">
+🎵 TikTok
+</a>
+
+<a href="https://facebook.com/" target="_blank">
+📘 Facebook
+</a>
+
+</div>
+
 </footer>
+
+<!-- WHATSAPP -->
 
 <a class="whatsapp"
 href="https://wa.me/2001044829997">
@@ -623,6 +758,8 @@ description:`
 
 ];
 
+/* RENDER */
+
 function renderProducts(items = products){
 
 const container =
@@ -669,6 +806,8 @@ onclick="event.stopPropagation();addToCart(${product.id})">
 
 }
 
+/* MODAL */
+
 function openModal(id){
 
 const product =
@@ -710,6 +849,8 @@ document
 
 }
 
+/* SEARCH */
+
 function searchProducts(){
 
 const value =
@@ -730,6 +871,8 @@ product.name
 renderProducts(filtered);
 
 }
+
+/* CART */
 
 let cart =
 JSON.parse(localStorage.getItem("cart"))
@@ -882,6 +1025,8 @@ count.innerHTML = totalCount;
 
 }
 
+/* CHECKOUT */
+
 function checkout(){
 
 if(cart.length === 0){
@@ -930,6 +1075,8 @@ window.open(
 );
 
 }
+
+/* INIT */
 
 renderProducts();
 

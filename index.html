@@ -123,56 +123,101 @@ box-shadow:0 10px 25px rgba(255,95,143,.3);
 
 /* HERO */
 
+/* HERO */
+
 .hero{
-min-height:100vh;
-display:grid;
-grid-template-columns:1fr 1fr;
+
+height:100vh;
+position:relative;
+overflow:hidden;
+display:flex;
 align-items:center;
-padding:170px 8% 100px;
-gap:60px;
-background:
-radial-gradient(circle at top right,#ffd4df,transparent 35%),
-linear-gradient(135deg,#fff7f9,#ffe8f0);
+justify-content:center;
+padding:140px 8% 80px;
+
+background-image:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("https://challengeacad.com/wp-content/uploads/2023/12/Online-Dermatology-Skincare-Course.jpg");
+
+background-size:115%;
+background-position:center;
+background-repeat:no-repeat;
+
+transition:background-size .2s linear;
+
+}
+
+.hero-content{
+
+text-align:center;
+color:white;
+max-width:850px;
+z-index:2;
+
 }
 
 .hero h1{
-font-size:4.3rem;
+
+font-size:5rem;
 line-height:1.2;
 margin-bottom:20px;
-color:#24131a;
+font-weight:900;
+
 }
 
 .hero h1 span{
-background:var(--gradient);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+
+color:#ff7ca8;
+
 }
 
 .hero p{
-font-size:1.1rem;
+
+font-size:1.2rem;
 line-height:2;
-margin-bottom:30px;
-color:#555;
+margin-bottom:35px;
+color:#f3f3f3;
+
 }
 
 .hero-btn{
+
 display:inline-block;
-padding:16px 38px;
-background:var(--gradient);
+padding:18px 45px;
+background:linear-gradient(135deg,#ff5f8f,#ff9ab6);
 color:white;
 text-decoration:none;
 border-radius:60px;
 font-weight:700;
-box-shadow:0 10px 25px rgba(255,95,143,.35);
+font-size:1.1rem;
+box-shadow:0 10px 30px rgba(255,95,143,.4);
+
 }
 
-.hero-image img{
-width:100%;
-max-width:520px;
-border-radius:35px;
-box-shadow:0 25px 60px rgba(0,0,0,.18);
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero{
+
+background-size:cover;
+padding:120px 20px 70px;
+
 }
 
+.hero h1{
+
+font-size:2.8rem;
+
+}
+
+.hero p{
+
+font-size:1rem;
+
+}
+
+}
 /* SECTION */
 
 .section{
@@ -635,18 +680,21 @@ Rosavelleee
 
 <section class="hero">
 
-<div>
+<div class="hero-content">
 
 <h1>
 
 اكتشفي جمالك مع
+<br>
+
 <span>Rosavelleee</span>
 
 </h1>
 
 <p>
 
-أفضل منتجات العناية بالبشرة والشعر بصور حقيقية وتصميم احترافي وتجربة شراء سهلة وسريعة.
+أفضل منتجات العناية بالبشرة والشعر
+بجودة عالية وتصميم فاخر وتجربة تسوق احترافية ✨
 
 </p>
 
@@ -657,6 +705,24 @@ Rosavelleee
 </a>
 
 </div>
+window.addEventListener("scroll",()=>{
+
+const hero = document.querySelector(".hero");
+
+let scroll = window.scrollY;
+
+let size = 115 - (scroll * 0.03);
+
+if(size < 100){
+
+size = 100;
+
+}
+
+hero.style.backgroundSize = size + "%";
+
+});
+</section>
 
 <div class="hero-image">
 

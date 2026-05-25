@@ -810,9 +810,13 @@ renderProducts(filtered);
 
 }
 
-let cart =
-JSON.parse(localStorage.getItem("cart"))
-|| [];
+/* CART SYSTEM */
+
+let cart = [];
+
+/* تنظيف السلة القديمة */
+
+localStorage.removeItem("cart");
 
 function toggleCart(){
 
@@ -822,28 +826,178 @@ document
 
 }
 
+/* ADD TO CART */
+
 function addToCart(id){
 
 const product =
-products.find(p=>p.id===id);
+products.find(p => p.id === id);
 
 const existing =
-cart.find(item=>item.id===id);
+cart.find(item => item.id === id);
 
 if(existing){
 
-existing.quantity++;
+existing.quantity += 1;
 
 }else{
 
 cart.push({
+
 ...product,
 quantity:1
+
 });
 
 }
 
 saveCart();
+
+renderCart();
+
+alert("🔥 دي شكلها هتولع بقا وهنشتري الـ BMW 🚘✨");
+
+}
+
+/* SAVE CART */
+
+function saveCart(){
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+}
+
+/* RENDER CART */
+
+function renderCart(){
+
+const container =
+document.getElementById("cartItems");
+
+const total =
+document.getElementById("total");
+
+const count =
+document.getElementById("cartCount");
+
+container.innerHTML = "";
+
+let totalPrice = 0;
+let totalCount = 0;
+
+cart.forEach(item=>{
+
+const itemTotal =
+item.price * item.quantity;
+
+totalPrice += itemTotal;
+
+totalCount += item.quantity;
+
+container.innerHTML += `
+
+<div class="cart-item">
+
+<img src="${item.image}">
+
+<div>
+
+<h4>${item.name}</h4>
+
+<p>
+
+${item.quantity} × ${item.price} ج
+
+</p>
+
+<strong>
+
+${itemTotal} ج
+
+</strong>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+total.innerHTML = totalPrice;
+
+count.innerHTML = totalCount;
+
+}
+
+/* CHECKOUT */
+
+function checkout(){
+
+if(cart.length === 0){
+
+alert("السلة فارغة 😅");
+
+return;
+
+}
+
+let message =
+`🌸 طلب جديد من Rosavelleee 🌸
+
+`;
+
+cart.forEach(item=>{
+
+message += `
+🛍 المنتج:
+${item.name}
+
+🔢 الكمية:
+${item.quantity}
+
+💵 السعر:
+${item.price} ج
+
+ــــــــــــــــــ
+`;
+
+});
+
+const finalTotal =
+cart.reduce(
+(sum,item)=>
+sum + (item.price * item.quantity),
+0
+);
+
+message += `
+
+💰 الإجمالي النهائي:
+${finalTotal} ج
+
+✨ شكراً لطلبك من Rosavelleee
+`;
+
+const encoded =
+encodeURIComponent(message);
+
+window.open(
+
+`https://wa.me/2001044829997?text=${encoded}`,
+
+"_blank"
+
+);
+
+}
+
+/* START */
+
+renderProducts();
 
 renderCart();
 
